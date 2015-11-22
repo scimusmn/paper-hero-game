@@ -102,8 +102,11 @@ exports.expectConcatText = function(id, rectArray) {
 * Expect Fillable Box in specified region.
 *
 * A single box will return a boolean.
-* Pass in columns and rows to split box
-* into an array of fillable boxes.
+* If you provide columns and rows,
+* the box will be split into an array
+* of fillable boxes, and you will be
+* returned an array of indices representing
+* all filled boxes. Pretty cool, eh?
 *
 */
 exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
@@ -111,13 +114,37 @@ exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
   var cols = _cols || 1;
   var rows = _rows || 1;
 
-  var region = {    id: id,
-                    type: TYPE_FILL,
-                    rect: {x:x, y:y, w:w, h:h},
-                    options: {cols:cols, rows:rows},
-                  };
+  if (cols === 1 && rows === 1) {
 
-  expected.push(region);
+    var region = {    id: id,
+                      type: TYPE_FILL,
+                      rect: {x:x, y:y, w:w, h:h},
+                    };
+
+    expected.push(region);
+
+  } else {
+
+    var colWidth = w / cols;
+    var rowHeight = h / rows;
+    var index = 0;
+
+    for (var r = 0; r < rows; r++) {
+      for (var c = 0; c < cols; c++) {
+
+        var region = {    id: 'F^G_' + id + '_' + index,
+                          type: TYPE_FILL,
+                          rect: {x:x + (c * colWidth), y:y + (r * rowHeight), w:colWidth, h:rowHeight},
+                        };
+
+        expected.push(region);
+
+        index ++;
+
+      };
+    };
+
+  }
 
 };
 
@@ -141,7 +168,7 @@ exports.digest = function(imgPath, completeCallback) {
       if (err) {
         throw err;
       } else {
-        console.log('Prep complete:', prepPath);
+        console.log('Scan prepared:', prepPath);
         processRegions(prepPath, completeCallback);
       }
     });
@@ -312,13 +339,15 @@ var processNextRegion = function(imgPath) {
 */
 var processComplete = function(id, result, srcPath) {
 
-  console.log('processComplete', id, result, srcPath);
+  // console.log('processComplete', id, result, srcPath);
 
   results[id] = result;
 
   numProcesses--;
 
   if (numProcesses <= 0) {
+
+    results = cleanUpResults(results);
 
     resultsCallback(results);
 
@@ -329,6 +358,45 @@ var processComplete = function(id, result, srcPath) {
   }
 
 };
+
+var cleanUpResults = function(dirtyResults) {
+
+  var cleanResults = {};
+
+  for (var property in dirtyResults) {
+    if (dirtyResults.hasOwnProperty(property)) {
+
+      // Combine fill-grid results into single result array
+      if (property.indexOf('F^G') !== -1) {
+
+        // Concat grid results
+        var split = property.split('_');
+        var gridGroup = split[0];
+        var id = split[1];
+        var index = split[2];
+        var isFilled = dirtyResults[property];
+
+        if (!(id in cleanResults)) {
+          cleanResults[id] = [];
+        }
+
+        // Insert into array based off original index
+        cleanResults[id][index] = isFilled;
+
+      } else {
+
+        // Nothing special needs to be
+        // done, just copy back into results
+        cleanResults[property] = dirtyResults[property];
+
+      }
+
+    }
+  }
+
+  return cleanResults;
+
+}
 
 /**
 *
