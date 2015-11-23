@@ -1,0 +1,24 @@
+{
+  "uniqueId": {
+    "monster": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/monster.png",
+    "projectile": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/projectile.png",
+    "food": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/food.png",
+    "step1": 5,
+    "step2": 1,
+    "step3": 4,
+    "step4": 5,
+    "step5": 5,
+    "created": "1448257035484"
+  },
+  "character_1448257061793": {
+    "monster": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/monster.png",
+    "projectile": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/projectile.png",
+    "food": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/food.png",
+    "step1": 5,
+    "step2": 1,
+    "step3": 4,
+    "step4": 5,
+    "step5": 5,
+    "created": "1448257061793"
+  }
+}

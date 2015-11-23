@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Big Screen</title>
+  </head>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/smash/css/screen.css">
+  <link rel="stylesheet" type="text/css" href="/smash/css/game.css">
+
+  <!-- JS -->
+  <script src="/smash/socket.io/socket.io.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="/smash/js/BigGame.js"></script>
+
+
+  <script>
+
+    $(document).ready(function(){
+
+      var socket = io.connect('', {path: "/smash/socket.io"});
+      var game = new BigGame();
+
+      //Let socket.io know this is the shared screen client
+      socket.emit('register', {'usertype':'client_shared_screen'} );
+
+      socket.on('add-player', function(data){
+
+        // $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has joined.'));
+
+        // Quick hack to shorten names
+        // TODO - Fix later
+        var newName = data.nickname.substring(0,15);
+        data.nickname = newName;
+        game.addPlayer(data);
+
+      });
+
+      socket.on('remove-player', function(data){
+
+        // $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has exited.'));
+        game.removePlayer(data);
+
+      });
+
+      socket.on('control-vector', function(data){
+        game.controlVector(data);
+      });
+
+      socket.on('control-tap', function(data){
+        game.controlTap(data);
+      });
+
+
+      //Set game bounds on load/resize
+      $(window).bind("load resize", function() {
+
+        var w = (this.window.innerWidth > 0) ? this.window.innerWidth : this.screen.width;
+        var h = (this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height;
+        game.setBounds(0,0,w,h);
+
+      });
+
+      game.init($('#stage'));
+      game.setCallbacks(onForceDisconnect, onWin, onLose, onPoints, onStun, onTrackEvent);
+
+      function onForceDisconnect(userid) {
+        //Emit idle player's socket id
+        socket.emit('force-disconnect', {'userid':userid} );
+      }
+      function onWin(socketid) {
+        //Emit winner's socket id
+        socket.emit('controller-event', {'type':'win', 'socketid':socketid} );
+      }
+      function onLose(socketid) {
+        //Emit loser's socket id
+        socket.emit('controller-event', {'type':'lose', 'socketid':socketid} );
+      }
+      function onPoints(socketid) {
+        //Emit point-getter's socket id
+        socket.emit('controller-event', {'type':'points', 'socketid':socketid} );
+      }
+      function onStun(socketid) {
+        //Emit stunned user's socketid
+        socket.emit('controller-event', {'type':'stun', 'socketid':socketid} );
+      };
+      function onTrackEvent(eventType, eventObj) {
+        sendKeenEvent(eventType, eventObj);
+      };
+
+    });
+
+
+  </script>
+
+  <body>
+    <ul id="messages"></ul>
+    <div id="stage"></div>
+    <h2 id="game-countdown"></h2>
+    <h3 id="join-msg">Visit<br/>play.smm.org</h3>
+    <div id="new-round">
+      <img src="/smash/img/new-round-screen.png"/>
+      <h2 id="round-countdown">XX</h2>
+      <ul id="player-list">
+        <li>No players have joined</li>
+      </ul>
+    </div>
+  </body>
+
+</html>

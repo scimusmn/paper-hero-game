@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Touch Controller</title>
+    <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  </head>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/smash/css/controller.css">
+
+  <!-- JS -->
+  <script src="/smash/socket.io/socket.io.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+  <script src="/smash/js/VectorTouchController.js"></script>
+  <script src="/smash/js/vendor/jquery.touchglow.js"></script>
+  <script src="/smash/js/vendor/howler.min.js"></script>
+  <script src="/smash/js/vendor/randomColor.min.js"></script>
+
+  <script>
+
+    $(document).ready(function(){
+
+      var socket = io.connect('', {path: "/smash/socket.io"});
+
+     /**
+      * Check if this device allows
+      * Local Storage, which will
+      * error out on iOS Safari when
+      * you attempt to use.
+      */
+      function localStorageAvailable(){
+        var test = 'test';
+        try {
+          localStorage.setItem(test, test);
+          localStorage.removeItem(test);
+          return true;
+        } catch(e) {
+          return false;
+        }
+      }
+      if (localStorageAvailable() === false) {
+        $('body').empty();
+        $('body').append('<h1><br/>Whoops!<br/>Unable to connect.</h1><br/><h3>Make sure your device is not in private-browsing mode.</h3>');
+        return;
+      }
+
+     /**
+      * Check for previously stored
+      * data to determine whether
+      * this is a first-time or
+      * returning user.
+      */
+      var localData = localStorage.getItem('smm_player_data');
+      if (localData !== null) {
+        var data = JSON.parse(localData);
+        promptReturnUser(data);
+      } else {
+        promptFirstTimer();
+      }
+
+      function promptReturnUser(data) {
+
+        var nickname = prompt("Welcome back!\nEnter nickname.", ''); // (User:"+data.userid+")\nEnter nickname.
+
+        data.nickname = sanitize(nickname);
+        data.firstTime = false;
+        register(data);
+
+      }
+
+      function promptFirstTimer() {
+
+        var nickname = prompt("Welcome! Touch and drag to move your character. Tap screen to smash asteroids. Enter nickname.", '');
+        nickame = sanitize(nickname);
+        var data = {'nickname': nickname};
+        data.firstTime = true;
+        register(data);
+
+      }
+
+      function sanitize(nameStr) {
+
+        //Max length : 13 chars
+        var name = nameStr.substring(0, 15);
+
+        //Strip out HTML
+        var strippedName = $('<p>' + name + '</p>').text();
+
+        return strippedName;
+      }
+
+      function register(data) {
+
+        data.usertype = 'client_controller';
+        data.usercolor = randomColor();
+        socket.emit('register', data);
+
+        setupTouchControls();
+
+      }
+
+      function setupTouchControls() {
+
+        var touchControl = new VectorTouchController(socket);
+        touchControl.enable();
+
+      }
+
+     /**
+      * Generalized message reciever
+      * to display full screen alerts
+      */
+      socket.on('alert-message', function(data){
+        $('body').empty();
+        $('body').append('<h1><br/>'+data.message+'</h1>');
+      });
+
+     /**
+      * Listen for instruction from
+      * node to store new or updated
+      * user data, specific to this
+      * device. e.g., unique ids,
+      * scores, customizations...
+      */
+      socket.on('store-local-data', function(data){
+
+        if (typeof window.localStorage != "undefined") {
+
+          localStorage.setItem(data.key, data.dataString);
+
+        } else {
+
+          console.log("WARNING: localstorage unavailable on this device");
+
+        }
+
+      });
+
+     /**
+      * Listen for events targeted
+      * specically at this controller
+      * from the game. Useful for
+      * triggering sfx, game-states,
+      * alerts, secrets, high-score, etc.
+      */
+      socket.on('controller-event', function(data){
+
+        if (data.type === 'stun') {
+
+          playSound('stun');
+
+        } else if (data.type === 'points') {
+
+          playSound('points');
+
+        } else if (data.type === 'win') {
+
+          playSound('winner');
+
+        } else if (data.type === 'lose') {
+          setTimeout(function () {
+            playSound('loser'+Math.ceil(Math.random()*3));
+          }, 5000);
+        }
+
+      });
+
+     /**
+      * Due to mobile limitations,
+      * we must instantiate our
+      * sounds in a user-triggered
+      * function. Important: The
+      * 'buffer' parameter must
+      * be set to true for mobile.
+      */
+      var soundPlayer;
+      document.addEventListener( 'touchend', initSounds, false );
+      document.addEventListener( 'mouseup', initSounds, false );
+      function initSounds () {
+
+        soundPlayer = new Howl({
+          urls: ['sounds/sounds.mp3', 'sounds/sounds.ogg'],
+          buffer: true,
+          sprite: {
+
+            winner: [1, 4467],
+            stun: [4513, 1285],
+            loser1: [6026, 1270],
+            loser2: [7300, 1120],
+            loser3: [8434, 1282],
+            points: [9775, 1459]
+
+          }
+        });
+
+        document.removeEventListener( 'touchend', initSounds, false );
+        document.removeEventListener( 'mouseup', initSounds, false );
+
+      }
+      function playSound(sndId) {
+        if (soundPlayer) {
+          console.log("play", sndId);
+          soundPlayer.play(sndId);
+        }
+      }
+
+    });
+
+  </script>
+
+  <body>
+    <br/><h3 id="instruct" style="pointer-events:none;">Touch and drag to move.<br/>Tap to smash.</h3>
+    <canvas id="canvas"></canvas>
+  </body>
+
+</html>
