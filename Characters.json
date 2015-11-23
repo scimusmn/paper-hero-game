@@ -1,24 +1,158 @@
 {
-  "uniqueId": {
-    "monster": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/monster.png",
-    "projectile": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/projectile.png",
-    "food": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/food.png",
-    "step1": 5,
-    "step2": 1,
-    "step3": 4,
+  "MDCK": {
+    "monster": "./public/output/1448262840645/monster.png",
+    "projectile": "./public/output/1448262840645/projectile.png",
+    "food": "./public/output/1448262840645/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
     "step4": 5,
     "step5": 5,
-    "created": "1448257035484"
+    "datecreated": "1448262843759"
   },
-  "character_1448257061793": {
-    "monster": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/monster.png",
-    "projectile": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/projectile.png",
-    "food": "/Users/tnordberg/Documents/SMM_Dev_Projects/paper-art-eater/public/output/food.png",
-    "step1": 5,
-    "step2": 1,
-    "step3": 4,
+  "SAWF": {
+    "monster": "./public/output/1448262845276/monster.png",
+    "projectile": "./public/output/1448262845276/projectile.png",
+    "food": "./public/output/1448262845276/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
     "step4": 5,
     "step5": 5,
-    "created": "1448257061793"
+    "datecreated": "1448262848434"
+  },
+  "LQBV": {
+    "monster": "./public/output/1448262851028/monster.png",
+    "projectile": "./public/output/1448262851028/projectile.png",
+    "food": "./public/output/1448262851028/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262854115"
+  },
+  "ESKT": {
+    "monster": "./public/output/1448262863834/monster.png",
+    "projectile": "./public/output/1448262863834/projectile.png",
+    "food": "./public/output/1448262863834/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262866940"
+  },
+  "UTDX": {
+    "monster": "./public/output/1448262868236/monster.png",
+    "projectile": "./public/output/1448262868236/projectile.png",
+    "food": "./public/output/1448262868236/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262871367"
+  },
+  "DHIK": {
+    "monster": "./public/output/1448262873229/monster.png",
+    "projectile": "./public/output/1448262873229/projectile.png",
+    "food": "./public/output/1448262873229/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262876342"
+  },
+  "RFJL": {
+    "monster": "./public/output/1448262879529/monster.png",
+    "projectile": "./public/output/1448262879529/projectile.png",
+    "food": "./public/output/1448262879529/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262882695"
+  },
+  "CREE": {
+    "monster": "./public/output/1448262906098/monster.png",
+    "projectile": "./public/output/1448262906098/projectile.png",
+    "food": "./public/output/1448262906098/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262909226"
+  },
+  "SKIV": {
+    "monster": "./public/output/1448262910758/monster.png",
+    "projectile": "./public/output/1448262910758/projectile.png",
+    "food": "./public/output/1448262910758/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262913878"
+  },
+  "CEEI": {
+    "monster": "./public/output/1448262916172/monster.png",
+    "projectile": "./public/output/1448262916172/projectile.png",
+    "food": "./public/output/1448262916172/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262919237"
+  },
+  "SQPB": {
+    "monster": "./public/output/1448262922152/monster.png",
+    "projectile": "./public/output/1448262922152/projectile.png",
+    "food": "./public/output/1448262922152/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262925278"
+  },
+  "SPWO": {
+    "monster": "./public/output/1448262929337/monster.png",
+    "projectile": "./public/output/1448262929337/projectile.png",
+    "food": "./public/output/1448262929337/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448262932453"
+  },
+  "BSNW": {
+    "monster": "./public/output/1448263007189/monster.png",
+    "projectile": "./public/output/1448263007189/projectile.png",
+    "food": "./public/output/1448263007189/food.png",
+    "step1": 4,
+    "step2": 4,
+    "step3": 2,
+    "step4": 5,
+    "step5": 5,
+    "datecreated": "1448263010330"
+  },
+  "FBCC": {
+    "monster": "./public/output/1448263373902/monster.png",
+    "projectile": "./public/output/1448263373902/projectile.png",
+    "food": "./public/output/1448263373902/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448263377047"
   }
 }

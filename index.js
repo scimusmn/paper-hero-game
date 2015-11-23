@@ -26,7 +26,7 @@ chokidar.watch(scanDir, watchOptions).on('add', function(path) {
 */
 
 // Set up form for scan reader
-reader.setOutputPath(__dirname + '/public/output/');
+reader.setOutputPath('./public/output/');
 
 // Monster art...
 reader.expectArt('monster', 173, 370, 496, 658);
@@ -41,24 +41,31 @@ reader.expectFillBox('step4', 778, 1327, 170, 170, 3, 3);
 reader.expectFillBox('step5', 995, 1327, 170, 170, 3, 3);
 
 // Use local file for testing
-processScan(__dirname + '/public/example-scans/Image-003.png');
+processScan(__dirname + '/public/example-scans/Image-001.png');
 
 function processScan(formPath) {
 
-  reader.outputDebug(formPath, function(path) {});
-
-  reader.digest(formPath, digestionComplete);
+  reader.digest(formPath, digestionComplete, true);
 
 }
 
 function digestionComplete(results) {
 
-  // Set fill-box arrays to index of first filled box.
-  results.step1 = results.step1.indexOf(true);
-  results.step2 = results.step2.indexOf(true);
-  results.step3 = results.step3.indexOf(true);
-  results.step4 = results.step4.indexOf(true);
-  results.step5 = results.step5.indexOf(true);
+  // Simplify fill-box results by using only
+  // first true value, and collapsing into single array.
+  results.steps = [results.step1.indexOf(true),
+                    results.step2.indexOf(true),
+                    results.step3.indexOf(true),
+                    results.step4.indexOf(true),
+                    results.step5.indexOf(true),
+                    ];
+
+  // Remove the now uneccessary keys
+  delete results.step1;
+  delete results.step2;
+  delete results.step3;
+  delete results.step4;
+  delete results.step5;
 
   console.log('\nDigestion complete ... <{ BURP! }');
 
@@ -68,14 +75,21 @@ function digestionComplete(results) {
 
 function newCharacter(characterData) {
 
-  // TODO - create 'Mobile Code' for this character
-  var timestamp = Date.now() + '';
-  var uniqueId = 'Character_' + timestamp;
-  characterData.datecreated = timestamp;
+  // Create unique ID for new character.
+  var uniqueId = generateCharacterId();
+  while ((uniqueId in charactersJSON)) {
+    uniqueId = generateCharacterId();
+  }
 
+  // TODO - Rename asset folder to match unique id.
+
+  // Add metadata...
+  characterData.datecreated = Date.now() + '';
+
+  // Update local JSON with new character
   charactersJSON[uniqueId] = characterData;
 
-  // Write to manifest
+  // Overwrite manifest json document
   jsonfile.writeFile(charactersPath, charactersJSON, {spaces: 2}, function(err) {
 
     if (err) {
@@ -86,6 +100,18 @@ function newCharacter(characterData) {
     }
 
   });
+
+}
+
+function generateCharacterId() {
+
+  var id = '';
+  var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  for (var i = 0; i < 4; i++) {
+    id += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+
+  return id;
 
 }
 

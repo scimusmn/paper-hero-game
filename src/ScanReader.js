@@ -16,6 +16,7 @@ var TYPE_ART = 'art';
 var TYPE_FILL = 'fill';
 
 var outputPath = '.';
+var digestPath = '';
 var expected = [];
 var results = {};
 var resultsCallback = {};
@@ -29,13 +30,6 @@ var numProcesses = -1;
 exports.setOutputPath = function(path) {
 
   outputPath = path;
-
-  // TODO - setup new directory for this batch
-  // var baseName = path.basename(imgPath, path.extname(imgPath));
-  // var dirPath = outputPath + baseName;
-  // if (!fs.existsSync(dirPath)) {
-  //   fs.mkdirSync(dirPath);
-  // }
 
 };
 
@@ -139,7 +133,7 @@ exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
 
         expected.push(region);
 
-        index ++;
+        index++;
 
       };
     };
@@ -154,10 +148,23 @@ exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
 * Process image for expected art and text.
 *
 */
-exports.digest = function(imgPath, completeCallback) {
+exports.digest = function(imgPath, completeCallback, _debug) {
+
+  digestPath = outputPath + Date.now() + '/';
+
+  if (!fs.existsSync(digestPath)) {
+    fs.mkdirSync(digestPath);
+  }
+
+  // Export debug image
+  if (_debug && _debug === true) {
+    outputDebug(imgPath, function(debugPath) {
+      console.log(debugPath);
+    });
+  }
 
   // Create filepath for image.
-  var prepPath = outputPath + path.basename(imgPath, path.extname(imgPath)) + '-prepared.png';
+  var prepPath = digestPath + 'scan-prepared.png';
 
   // Prep scan image as a whole.
   gm(imgPath)
@@ -197,7 +204,7 @@ var processNextRegion = function(imgPath) {
 
   if (e.type === TYPE_TEXT) {
 
-    var txtPath = outputPath + e.id + '.png';
+    var txtPath = digestPath + e.id + '.png';
 
     gm(imgPath)
       .crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y)
@@ -221,7 +228,7 @@ var processNextRegion = function(imgPath) {
 
   } else if (e.type === TYPE_ART) {
 
-    var artPath = outputPath + e.id + '.png';
+    var artPath = digestPath + e.id + '.png';
 
     gm(imgPath)
       .crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y)
@@ -275,7 +282,7 @@ var processNextRegion = function(imgPath) {
     // ---> Create seperate letter images
     for (var i = 0; i < e.rect.length; i++) {
 
-      var ltrPath = outputPath + e.id + '_' + i + '.png';
+      var ltrPath = digestPath + e.id + '_' + i + '.png';
 
       var r = e.rect[i];
 
@@ -294,12 +301,12 @@ var processNextRegion = function(imgPath) {
     // ---> Stitch into single image
     setTimeout(function() {
 
-      var concatPath = outputPath + e.id + '-concat.png';
+      var concatPath = digestPath + e.id + '-concat.png';
 
       var ltrs = [];
       for (var i = 0; i < e.rect.length; i++) {
 
-        ltrs.push(outputPath + e.id + '_' + i + '.png');
+        ltrs.push(digestPath + e.id + '_' + i + '.png');
 
       };
 
@@ -315,7 +322,7 @@ var processNextRegion = function(imgPath) {
     // ---> Read stitched image w OCR
     setTimeout(function() {
 
-      var concatPath = outputPath + e.id + '-concat.png';
+      var concatPath = digestPath + e.id + '-concat.png';
       tesseract.process(concatPath, function(err, text) {
         if (err) {
           throw err;
@@ -404,10 +411,10 @@ var cleanUpResults = function(dirtyResults) {
 * Export highlighted debug image.
 *
 */
-exports.outputDebug = function(imgPath, completeCallback) {
+var outputDebug = function(imgPath, completeCallback) {
 
   // Create filepath for debug image.
-  var debugPath = outputPath + path.basename(imgPath, path.extname(imgPath)) + '-debug.png';
+  var debugPath = digestPath + path.basename(imgPath, path.extname(imgPath)) + '-debug.png';
 
   // Loop through expected regions to create
   // draw command for imagemagick.
