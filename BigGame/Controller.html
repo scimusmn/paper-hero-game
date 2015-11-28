@@ -91,7 +91,7 @@
 
       function register(data) {
 
-        data.usertype = 'client_controller';
+        data.usertype = 'cid_controller';
         data.usercolor = randomColor();
         socket.emit('register', data);
 
@@ -200,7 +200,8 @@
       function playSound(sndId) {
         if (soundPlayer) {
           console.log("play", sndId);
-          soundPlayer.play(sndId);
+          //Commented out for sanity
+          // soundPlayer.play(sndId);
         }
       }
 

@@ -73,14 +73,14 @@ exports.expectText = function(id, x, y, w, h) {
 
 /**
 *
-* Expect Concat Text.
+* Expect Stitch.
 *
 * Pass in array of rects,
 * Stitch them together into
-* single image then parse for OCR.
+* single image.
 *
 */
-exports.expectConcatText = function(id, rectArray) {
+exports.expectStitch = function(id, rectArray) {
 
   var region = {    id: id,
                     type: 'concat_text',

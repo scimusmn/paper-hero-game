@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
   <head>
-    <title>Big Screen</title>
+    <title>Game</title>
   </head>
 
   <!-- CSS -->
@@ -12,25 +12,27 @@
   <script src="/smash/socket.io/socket.io.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
   <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-  <script src="/smash/js/BigGame.js"></script>
-
+  <script src="/smash/js/Game.js"></script>
 
   <script>
 
     $(document).ready(function(){
 
+      console.log('Game is ready');
+
       var socket = io.connect('', {path: "/smash/socket.io"});
-      var game = new BigGame();
+      var game = new Game();
 
       //Let socket.io know this is the shared screen client
-      socket.emit('register', {'usertype':'client_shared_screen'} );
+      socket.emit('register', {usertype:'cid_shared_screen'} );
 
       socket.on('add-player', function(data){
 
-        // $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has joined.'));
+        console.log('add player');
 
-        // Quick hack to shorten names
-        // TODO - Fix later
+        $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has joined.'));
+
+        // Shorten names
         var newName = data.nickname.substring(0,15);
         data.nickname = newName;
         game.addPlayer(data);
@@ -39,7 +41,7 @@
 
       socket.on('remove-player', function(data){
 
-        // $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has exited.'));
+        $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has exited.'));
         game.removePlayer(data);
 
       });
@@ -60,10 +62,12 @@
         var h = (this.window.innerHeight > 0) ? this.window.innerHeight : this.screen.height;
         game.setBounds(0,0,w,h);
 
+        console.log('load resize');
+
       });
 
       game.init($('#stage'));
-      game.setCallbacks(onForceDisconnect, onWin, onLose, onPoints, onStun, onTrackEvent);
+      game.setCallbacks(onForceDisconnect, onWin, onLose, onPoints, onStun);
 
       function onForceDisconnect(userid) {
         //Emit idle player's socket id
@@ -84,9 +88,6 @@
       function onStun(socketid) {
         //Emit stunned user's socketid
         socket.emit('controller-event', {'type':'stun', 'socketid':socketid} );
-      };
-      function onTrackEvent(eventType, eventObj) {
-        sendKeenEvent(eventType, eventObj);
       };
 
     });

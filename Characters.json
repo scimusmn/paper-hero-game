@@ -1,151 +1,60 @@
 {
-  "MDCK": {
-    "monster": "./public/output/1448262840645/monster.png",
-    "projectile": "./public/output/1448262840645/projectile.png",
-    "food": "./public/output/1448262840645/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262843759"
+  "ZXEG": {
+    "monster": "./BigGame/public/img/characters/1448746144943/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746144943/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746144943/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448746148182"
   },
-  "SAWF": {
-    "monster": "./public/output/1448262845276/monster.png",
-    "projectile": "./public/output/1448262845276/projectile.png",
-    "food": "./public/output/1448262845276/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262848434"
+  "FWWI": {
+    "monster": "./BigGame/public/img/characters/1448746174958/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746174958/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746174958/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448746178107"
   },
-  "LQBV": {
-    "monster": "./public/output/1448262851028/monster.png",
-    "projectile": "./public/output/1448262851028/projectile.png",
-    "food": "./public/output/1448262851028/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262854115"
+  "SBBJ": {
+    "monster": "./BigGame/public/img/characters/1448746204970/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746204970/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746204970/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448746208208"
   },
-  "ESKT": {
-    "monster": "./public/output/1448262863834/monster.png",
-    "projectile": "./public/output/1448262863834/projectile.png",
-    "food": "./public/output/1448262863834/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262866940"
+  "HBIS": {
+    "monster": "./BigGame/public/img/characters/1448746234985/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746234985/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746234985/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448746238190"
   },
-  "UTDX": {
-    "monster": "./public/output/1448262868236/monster.png",
-    "projectile": "./public/output/1448262868236/projectile.png",
-    "food": "./public/output/1448262868236/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262871367"
-  },
-  "DHIK": {
-    "monster": "./public/output/1448262873229/monster.png",
-    "projectile": "./public/output/1448262873229/projectile.png",
-    "food": "./public/output/1448262873229/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262876342"
-  },
-  "RFJL": {
-    "monster": "./public/output/1448262879529/monster.png",
-    "projectile": "./public/output/1448262879529/projectile.png",
-    "food": "./public/output/1448262879529/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262882695"
-  },
-  "CREE": {
-    "monster": "./public/output/1448262906098/monster.png",
-    "projectile": "./public/output/1448262906098/projectile.png",
-    "food": "./public/output/1448262906098/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262909226"
-  },
-  "SKIV": {
-    "monster": "./public/output/1448262910758/monster.png",
-    "projectile": "./public/output/1448262910758/projectile.png",
-    "food": "./public/output/1448262910758/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262913878"
-  },
-  "CEEI": {
-    "monster": "./public/output/1448262916172/monster.png",
-    "projectile": "./public/output/1448262916172/projectile.png",
-    "food": "./public/output/1448262916172/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262919237"
-  },
-  "SQPB": {
-    "monster": "./public/output/1448262922152/monster.png",
-    "projectile": "./public/output/1448262922152/projectile.png",
-    "food": "./public/output/1448262922152/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262925278"
-  },
-  "SPWO": {
-    "monster": "./public/output/1448262929337/monster.png",
-    "projectile": "./public/output/1448262929337/projectile.png",
-    "food": "./public/output/1448262929337/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448262932453"
-  },
-  "BSNW": {
-    "monster": "./public/output/1448263007189/monster.png",
-    "projectile": "./public/output/1448263007189/projectile.png",
-    "food": "./public/output/1448263007189/food.png",
-    "step1": 4,
-    "step2": 4,
-    "step3": 2,
-    "step4": 5,
-    "step5": 5,
-    "datecreated": "1448263010330"
-  },
-  "FBCC": {
-    "monster": "./public/output/1448263373902/monster.png",
-    "projectile": "./public/output/1448263373902/projectile.png",
-    "food": "./public/output/1448263373902/food.png",
+  "PQET": {
+    "monster": "./BigGame/public/img/characters/1448746264997/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746264997/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746264997/food.png",
     "steps": [
       4,
       4,
@@ -153,6 +62,552 @@
       5,
       5
     ],
-    "datecreated": "1448263377047"
+    "datecreated": "1448746268212"
+  },
+  "QDPW": {
+    "monster": "./BigGame/public/img/characters/1448746295007/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746295007/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746295007/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448746298203"
+  },
+  "WJWQ": {
+    "monster": "./BigGame/public/img/characters/1448746325019/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746325019/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746325019/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448746328181"
+  },
+  "DPNR": {
+    "monster": "./BigGame/public/img/characters/1448746355029/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746355029/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746355029/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448746358181"
+  },
+  "PDJS": {
+    "monster": "./BigGame/public/img/characters/1448746385038/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746385038/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746385038/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448746388823"
+  },
+  "QCIX": {
+    "monster": "./BigGame/public/img/characters/1448746415051/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746415051/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746415051/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448746418240"
+  },
+  "ZRMG": {
+    "monster": "./BigGame/public/img/characters/1448746445061/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746445061/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746445061/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448746448296"
+  },
+  "NVCK": {
+    "monster": "./BigGame/public/img/characters/1448746475072/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746475072/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746475072/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448746478287"
+  },
+  "TQLJ": {
+    "monster": "./BigGame/public/img/characters/1448746505083/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746505083/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746505083/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448746508266"
+  },
+  "LQNS": {
+    "monster": "./BigGame/public/img/characters/1448746535093/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746535093/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746535093/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448746538262"
+  },
+  "FSYW": {
+    "monster": "./BigGame/public/img/characters/1448746565102/monster.png",
+    "projectile": "./BigGame/public/img/characters/1448746565102/projectile.png",
+    "food": "./BigGame/public/img/characters/1448746565102/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448746568294"
+  },
+  "MEKP": {
+    "monster": "./public/characters/1448746992904/monster.png",
+    "projectile": "./public/characters/1448746992904/projectile.png",
+    "food": "./public/characters/1448746992904/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448746996081"
+  },
+  "QOFM": {
+    "monster": "./public/characters/1448747022920/monster.png",
+    "projectile": "./public/characters/1448747022920/projectile.png",
+    "food": "./public/characters/1448747022920/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448747026174"
+  },
+  "LFRP": {
+    "monster": "./public/characters/1448747052928/monster.png",
+    "projectile": "./public/characters/1448747052928/projectile.png",
+    "food": "./public/characters/1448747052928/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747056135"
+  },
+  "HZHB": {
+    "monster": "./public/characters/1448747082939/monster.png",
+    "projectile": "./public/characters/1448747082939/projectile.png",
+    "food": "./public/characters/1448747082939/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747086141"
+  },
+  "YROY": {
+    "monster": "./public/characters/1448747112952/monster.png",
+    "projectile": "./public/characters/1448747112952/projectile.png",
+    "food": "./public/characters/1448747112952/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747116157"
+  },
+  "QEEV": {
+    "monster": "./public/characters/1448747142963/monster.png",
+    "projectile": "./public/characters/1448747142963/projectile.png",
+    "food": "./public/characters/1448747142963/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747146134"
+  },
+  "GGHY": {
+    "monster": "./public/characters/1448747172973/monster.png",
+    "projectile": "./public/characters/1448747172973/projectile.png",
+    "food": "./public/characters/1448747172973/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448747176199"
+  },
+  "UMXH": {
+    "monster": "./public/characters/1448747232299/monster.png",
+    "projectile": "./public/characters/1448747232299/projectile.png",
+    "food": "./public/characters/1448747232299/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747235567"
+  },
+  "UBNO": {
+    "monster": "./public/characters/1448747294663/monster.png",
+    "projectile": "./public/characters/1448747294663/projectile.png",
+    "food": "./public/characters/1448747294663/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747297887"
+  },
+  "QPBM": {
+    "monster": "./public/characters/1448747324680/monster.png",
+    "projectile": "./public/characters/1448747324680/projectile.png",
+    "food": "./public/characters/1448747324680/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747327873"
+  },
+  "FBEK": {
+    "monster": "./public/characters/1448747354690/monster.png",
+    "projectile": "./public/characters/1448747354690/projectile.png",
+    "food": "./public/characters/1448747354690/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747358010"
+  },
+  "WUSX": {
+    "monster": "./public/characters/1448747384703/monster.png",
+    "projectile": "./public/characters/1448747384703/projectile.png",
+    "food": "./public/characters/1448747384703/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747387916"
+  },
+  "TSLM": {
+    "monster": "./public/characters/1448747414717/monster.png",
+    "projectile": "./public/characters/1448747414717/projectile.png",
+    "food": "./public/characters/1448747414717/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747418034"
+  },
+  "YWJG": {
+    "monster": "./public/characters/1448747444727/monster.png",
+    "projectile": "./public/characters/1448747444727/projectile.png",
+    "food": "./public/characters/1448747444727/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747447972"
+  },
+  "ECWU": {
+    "monster": "./public/characters/1448747474738/monster.png",
+    "projectile": "./public/characters/1448747474738/projectile.png",
+    "food": "./public/characters/1448747474738/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747478037"
+  },
+  "RJAT": {
+    "monster": "./public/characters/1448747504749/monster.png",
+    "projectile": "./public/characters/1448747504749/projectile.png",
+    "food": "./public/characters/1448747504749/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747508019"
+  },
+  "XLTE": {
+    "monster": "./public/characters/1448747534761/monster.png",
+    "projectile": "./public/characters/1448747534761/projectile.png",
+    "food": "./public/characters/1448747534761/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747538073"
+  },
+  "LXAO": {
+    "monster": "./public/characters/1448747564778/monster.png",
+    "projectile": "./public/characters/1448747564778/projectile.png",
+    "food": "./public/characters/1448747564778/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747568036"
+  },
+  "TDGL": {
+    "monster": "./public/characters/1448747594789/monster.png",
+    "projectile": "./public/characters/1448747594789/projectile.png",
+    "food": "./public/characters/1448747594789/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448747598080"
+  },
+  "WAAS": {
+    "monster": "./public/characters/1448747624798/monster.png",
+    "projectile": "./public/characters/1448747624798/projectile.png",
+    "food": "./public/characters/1448747624798/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448747628033"
+  },
+  "VYIB": {
+    "monster": "./public/characters/1448747654808/monster.png",
+    "projectile": "./public/characters/1448747654808/projectile.png",
+    "food": "./public/characters/1448747654808/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747658090"
+  },
+  "QTMX": {
+    "monster": "./public/characters/1448747684819/monster.png",
+    "projectile": "./public/characters/1448747684819/projectile.png",
+    "food": "./public/characters/1448747684819/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747688078"
+  },
+  "DMSB": {
+    "monster": "./public/characters/1448747714829/monster.png",
+    "projectile": "./public/characters/1448747714829/projectile.png",
+    "food": "./public/characters/1448747714829/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747718100"
+  },
+  "ZDOQ": {
+    "monster": "./public/characters/1448747744841/monster.png",
+    "projectile": "./public/characters/1448747744841/projectile.png",
+    "food": "./public/characters/1448747744841/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747748091"
+  },
+  "SMQZ": {
+    "monster": "./public/characters/1448747774851/monster.png",
+    "projectile": "./public/characters/1448747774851/projectile.png",
+    "food": "./public/characters/1448747774851/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747778063"
+  },
+  "DKFD": {
+    "monster": "./public/characters/1448747804862/monster.png",
+    "projectile": "./public/characters/1448747804862/projectile.png",
+    "food": "./public/characters/1448747804862/food.png",
+    "steps": [
+      5,
+      1,
+      4,
+      5,
+      5
+    ],
+    "datecreated": "1448747808127"
+  },
+  "GWNU": {
+    "monster": "./public/characters/1448747834874/monster.png",
+    "projectile": "./public/characters/1448747834874/projectile.png",
+    "food": "./public/characters/1448747834874/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747838165"
+  },
+  "IDXA": {
+    "monster": "./public/characters/1448747864879/monster.png",
+    "projectile": "./public/characters/1448747864879/projectile.png",
+    "food": "./public/characters/1448747864879/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747868222"
+  },
+  "YMPJ": {
+    "monster": "./public/characters/1448747894887/monster.png",
+    "projectile": "./public/characters/1448747894887/projectile.png",
+    "food": "./public/characters/1448747894887/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747898093"
+  },
+  "UBQN": {
+    "monster": "./public/characters/1448747924900/monster.png",
+    "projectile": "./public/characters/1448747924900/projectile.png",
+    "food": "./public/characters/1448747924900/food.png",
+    "steps": [
+      2,
+      8,
+      1,
+      4,
+      4
+    ],
+    "datecreated": "1448747928040"
+  },
+  "JJOF": {
+    "monster": "./public/characters/1448747954911/monster.png",
+    "projectile": "./public/characters/1448747954911/projectile.png",
+    "food": "./public/characters/1448747954911/food.png",
+    "steps": [
+      6,
+      6,
+      6,
+      6,
+      4
+    ],
+    "datecreated": "1448747958084"
+  },
+  "IEYW": {
+    "monster": "./public/characters/1448748006624/monster.png",
+    "projectile": "./public/characters/1448748006624/projectile.png",
+    "food": "./public/characters/1448748006624/food.png",
+    "steps": [
+      4,
+      4,
+      2,
+      5,
+      5
+    ],
+    "datecreated": "1448748009865"
   }
 }

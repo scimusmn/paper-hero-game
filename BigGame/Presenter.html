@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Presenter</title>
+  </head>
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/smash/css/screen.css">
+  <link rel="stylesheet" type="text/css" href="/smash/css/presenter.css">
+
+  <!-- JS -->
+  <script src="/smash/socket.io/socket.io.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <script>
+
+    $(document).ready(function(){
+
+      var socket = io.connect('', {path: "/smash/socket.io"});
+
+      //Let socket.io know this is the shared screen client
+      socket.emit('register', {usertype:'cid_presenter_screen'} );
+
+      socket.on('present-character', function(data){
+
+        presentNewCharacter(data.characterId, data.characterData);
+
+      });
+
+      /* Present new character */
+      function presentNewCharacter(characterId, characterData) {
+
+        console.log('presentNewCharacter', characterId);
+        console.log('characterData.monster', characterData.monster);
+
+          $("#character-code").html(characterId);
+          $("#character-preview").attr('src', characterData.monster);
+          // $("#character-name").attr('src', characterData.name);
+
+          $("#new-character").stop().fadeTo("fast",1);
+
+          // Fade out after delay
+          setTimeout(function(){
+
+            $("#new-character").stop().fadeTo("slow",0);
+
+          }, Math.ceil(20*1000));
+
+      }
+
+    });
+
+
+  </script>
+
+  <body>
+    <div id="new-character">
+      <h1>New character available!</h1>
+      <br/>
+      <img id="character-preview" src="" width="100"/>
+      <img id="character-name" src=""/>
+      <h3>Go to <strong>play.smm.org</strong> on your device and enter code</h3>
+      <h1 id="character-code">ABCD</h1>
+      <h3>to play.</h3>
+    </div>
+  </body>
+
+</html>

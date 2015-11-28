@@ -1,6 +1,8 @@
-var reader = require('./src/ScanReader.js');
+var reader = require('./ScanReader/ScanReader.js');
+var game = require('./BigGame/index.js');
 var chokidar = require('chokidar');
 var jsonfile = require('jsonfile');
+var path = require('path');
 
 var charactersJSON = {};
 var charactersPath = './Characters.json';
@@ -26,7 +28,15 @@ chokidar.watch(scanDir, watchOptions).on('add', function(path) {
 */
 
 // Set up form for scan reader
-reader.setOutputPath('./public/output/');
+reader.setOutputPath('./public/characters/');
+
+// Monster name
+// var nameArr = [];
+// for (var i = 0; i < 11; i++) {
+//   nameArr.push({x:130 + (94.5 * i), y:124, w:82, h:98});
+// };
+
+// reader.expectConcatText('name', nameArr);
 
 // Monster art...
 reader.expectArt('monster', 173, 370, 496, 658);
@@ -40,8 +50,11 @@ reader.expectFillBox('step3', 562, 1327, 170, 170, 3, 3);
 reader.expectFillBox('step4', 778, 1327, 170, 170, 3, 3);
 reader.expectFillBox('step5', 995, 1327, 170, 170, 3, 3);
 
-// Use local file for testing
-processScan(__dirname + '/public/example-scans/Image-001.png');
+// TEMP - Every 30 seconds load local scan for testing.
+setInterval(function() {
+  var rInt = Math.ceil(Math.random() * 4);
+  processScan(__dirname + '/public/example-scans/Image-00' + rInt + '.png');
+}, 30 * 1000);
 
 function processScan(formPath) {
 
@@ -67,15 +80,26 @@ function digestionComplete(results) {
   delete results.step4;
   delete results.step5;
 
+  // Simplify asset paths by finding
+  // base path for every asset.
+  console.log(results.monster);
+
+
+
+  var trimmedPath = path.basename(results.monster);
+  trimmedPath = path.basename(trimmedPath);
+  console.log(trimmedPath);
+
   console.log('\nDigestion complete ... <{ BURP! }');
 
-  newCharacter(results);
+  addCharacter(results);
 
 }
 
-function newCharacter(characterData) {
+function addCharacter(characterData) {
 
   // Create unique ID for new character.
+
   var uniqueId = generateCharacterId();
   while ((uniqueId in charactersJSON)) {
     uniqueId = generateCharacterId();
@@ -95,8 +119,8 @@ function newCharacter(characterData) {
     if (err) {
       console.error(err);
     } else {
-      // TODO - Tell game there's a new character
-      // game.addCharacter(newCharId, characterData);
+      game.updateCharacterManifest(charactersJSON);
+      game.addPlayableCharacter(uniqueId, characterData);
     }
 
   });
@@ -104,6 +128,9 @@ function newCharacter(characterData) {
 }
 
 function generateCharacterId() {
+
+  // Using 26 letters and 4 slots,
+  // we get 358,800 permutations.
 
   var id = '';
   var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
