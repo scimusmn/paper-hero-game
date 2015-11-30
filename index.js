@@ -39,8 +39,8 @@ for (var i = 0; i < 11; i++) {
 reader.expectStitch('name', nameArr);
 
 // Monster art...
-// reader.expectArt('monster', 173, 370, 496, 658);
-// reader.expectArt('projectile', 830, 408, 227, 227);
+reader.expectArt('monster', 173, 370, 496, 658);
+reader.expectArt('projectile', 830, 408, 227, 227);
 reader.expectArt('food', 830, 798, 227, 227);
 
 // Instruction loop boxes...
@@ -82,6 +82,12 @@ function digestionComplete(results) {
   delete results.step5;
 
   console.log('\nDigestion complete ... <{ BURP! }');
+
+  // Manipulate filepaths to work with game server
+  results.monster = results.monster.replace('./public/', '/smash/');
+  results.projectile = results.projectile.replace('./public/', '/smash/');
+  results.food = results.food.replace('./public/', '/smash/');
+  results.name = results.name.replace('./public/', '/smash/');
 
   addCharacter(results);
 

@@ -32,11 +32,11 @@
       function presentNewCharacter(characterId, characterData) {
 
         console.log('presentNewCharacter', characterId);
-        console.log('characterData.monster', characterData.monster);
+        console.log(characterData);
 
           $("#character-code").html(characterId);
           $("#character-preview").attr('src', characterData.monster);
-          // $("#character-name").attr('src', characterData.name);
+          $("#character-name").attr('src', characterData.name);
 
           $("#new-character").stop().fadeTo("fast",1);
 
@@ -45,7 +45,7 @@
 
             $("#new-character").stop().fadeTo("slow",0);
 
-          }, Math.ceil(20*1000));
+          }, Math.ceil(25*1000));
 
       }
 
@@ -56,13 +56,16 @@
 
   <body>
     <div id="new-character">
-      <h1>New character available!</h1>
       <br/>
-      <img id="character-preview" src="" width="100"/>
-      <img id="character-name" src=""/>
-      <h3>Go to <strong>play.smm.org</strong> on your device and enter code</h3>
+      <h3>New character!</h3>
+      <br/>
+      <img id="character-name" src="" width="460"/>
+      <br/>
+      <img id="character-preview" src="" width="220"/>
+      <div id="rays"></div>
+      <br/>
+      <h3>Go to <strong>play.smm.org</strong> and enter code</h3>
       <h1 id="character-code">ABCD</h1>
-      <h3>to play.</h3>
     </div>
   </body>
 
