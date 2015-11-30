@@ -1,5 +1,8 @@
-js/vendor/
 img/
+sounds/
 work/
-public/
-*/node_modules
+vendor/
+characters/
+example-scans/
+scans/
+node_modules/

@@ -1,0 +1,66 @@
+.flyer{
+    position: absolute;
+    z-index: 3;
+}
+.flyer img{
+    position: absolute;
+    z-index: 3;
+}
+.flyer p{
+    font-size: 1.5em;
+}
+.flyer #fly{
+    left: -15px;
+    top: 25px;
+}
+.flyer #idle{
+    /*top: 10px;*/
+}
+.flyer #cape{
+    z-index: 4;
+}
+.puff{
+    position: absolute;
+    z-index: 1;
+}
+.puff-ring{
+    position: absolute;
+    z-index: 1;
+    top: -5px;
+    left: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    border-width: 4px;
+    border-style: solid;
+}
+.points{
+    position: absolute;
+    z-index: 3;
+    font-size: 2em;
+    font-weight: bold;
+}
+.asteroid,
+.asteroid img{
+    position: absolute;
+    z-index: 2;
+}
+#fist{
+    position: absolute;
+    z-index: 2;
+    top:-32px;
+    left:9px;
+    opacity:0;
+}
+.highlightRing{
+    position: absolute;
+    top: -14px;
+    left: -42px;
+    width: 120px;
+    height: 120px;
+    -moz-border-radius: 100%;
+    -webkit-border-radius: 100%;
+    border-radius: 100%;
+    background: transparent;
+    border: 3px solid;
+}

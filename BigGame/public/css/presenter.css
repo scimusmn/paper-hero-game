@@ -1,0 +1,46 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+
+    font: 20px Helvetica, Arial, Sans-serif;
+    color: #333;
+    text-align: center;
+
+    background: rgb(249,249,249); /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  rgba(249,249,249,1) 0%, rgba(250,250,250,1) 20%, rgba(249,249,249,1) 51%, rgba(239,239,239,1) 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  rgba(249,249,249,1) 0%,rgba(250,250,250,1) 20%,rgba(249,249,249,1) 51%,rgba(239,239,239,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  rgba(249,249,249,1) 0%,rgba(250,250,250,1) 20%,rgba(249,249,249,1) 51%,rgba(239,239,239,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#efefef',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    /* Lock screen position */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: fixed;
+
+}
+
+h1 {
+
+}
+
+h2{
+
+}
+
+h3{
+
+}
+
+strong {
+    font-weight: bold;
+    color: red;
+}
+
+#character-code {
+    font-size: 6em;
+}
