@@ -1,4 +1,4 @@
-var reader = require('./ScanReader/ScanReader.js');
+var reader = require('./ScanReader/index.js');
 var game = require('./BigGame/index.js');
 var chokidar = require('chokidar');
 var jsonfile = require('jsonfile');
