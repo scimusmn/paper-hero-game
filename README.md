@@ -1,11 +1,13 @@
-ART EATER
+#ART EATER
 
-This package requires command line tools ImageMagick and tessearact
+This project requires two command line tools, ImageMagick and tessearact
 
-You can install them via HomeBrew:
+You can install via HomeBrew:
 
 ```brew install tesseract --all-languages```
 
 ```brew install imagemagick```
 
 
+#Status
+In progress prototype.
