@@ -13,6 +13,7 @@ var tesseract = require('node-tesseract');// Tesseract (for OCR)
 
 var TYPE_TEXT = 'text';
 var TYPE_ART = 'art';
+var TYPE_STITCH = 'stitch';
 var TYPE_FILL = 'fill';
 
 var outputPath = '.';
@@ -83,7 +84,7 @@ exports.expectText = function(id, x, y, w, h) {
 exports.expectStitch = function(id, rectArray) {
 
   var region = {    id: id,
-                    type: 'concat_text',
+                    type: TYPE_STITCH,
                     rect: rectArray,
                   };
 
@@ -159,7 +160,7 @@ exports.digest = function(imgPath, completeCallback, _debug) {
   // Export debug image
   if (_debug && _debug === true) {
     outputDebug(imgPath, function(debugPath) {
-      console.log(debugPath);
+      console.log('Debug prepared: ' + debugPath);
     });
   }
 
@@ -277,9 +278,10 @@ var processNextRegion = function(imgPath) {
 
       });
 
-  } else if (e.type === 'concat_text') {
+  } else if (e.type === TYPE_STITCH) {
 
-    // ---> Create seperate letter images
+    // Create seperate images
+    e.stitchCount = e.rect.length;
     for (var i = 0; i < e.rect.length; i++) {
 
       var ltrPath = digestPath + e.id + '_' + i + '.png';
@@ -293,48 +295,57 @@ var processNextRegion = function(imgPath) {
             throw err;
           } else {
 
+            stitchSectionReady(e, imgPath);
+
           }
+
         });
 
     };
 
-    // ---> Stitch into single image
-    setTimeout(function() {
+  }
 
-      var concatPath = digestPath + e.id + '-concat.png';
+};
 
-      var ltrs = [];
-      for (var i = 0; i < e.rect.length; i++) {
+var stitchSectionReady = function(region, imgPath) {
 
-        ltrs.push(digestPath + e.id + '_' + i + '.png');
+  region.stitchCount--;
 
-      };
+  if (region.stitchCount <= 0) {
 
-      gm(ltrs[0])
-        .append(ltrs[1], ltrs[2], ltrs[3], ltrs[4], ltrs[5], ltrs[6], ltrs[7], ltrs[8], ltrs[9], ltrs[10], true)
-        .write(concatPath, function(err) {
-          if (err) return console.dir(arguments);
-          console.log(this.outname + ' created  ::  ' + arguments[3]);
-        });
-
-    }, 2000);
-
-    // ---> Read stitched image w OCR
-    setTimeout(function() {
-
-      var concatPath = digestPath + e.id + '-concat.png';
-      tesseract.process(concatPath, function(err, text) {
-        if (err) {
-          throw err;
-        } else {
-          console.log('OCR success= ' + text);
-          processComplete(e.id, text, imgPath);
-        }
-      });
-
-    }, 4000);
+    appendStitchImages(region, imgPath);
 
   }
+
+};
+
+var appendStitchImages = function(region, imgPath) {
+
+  var concatPath = digestPath + region.id + '-stitched.png';
+
+  var ltrs = [];
+  for (var i = 0; i < region.rect.length; i++) {
+
+    var ltrPath = digestPath + region.id + '_' + i + '.png';
+    ltrs.push(ltrPath);
+
+  };
+
+  // Append all stitch images horizontally
+  var appendImg = gm(ltrs[0]);
+  appendImg.append.apply(appendImg, ltrs.slice(1, ltrs.length))
+    .append(true)
+      .write(concatPath, function(err) {
+        if (err) {
+
+          return console.dir(arguments);
+
+        }else {
+
+          processComplete(region.id, concatPath, imgPath);
+
+        }
+      });
 
 };
 
@@ -346,15 +357,13 @@ var processNextRegion = function(imgPath) {
 */
 var processComplete = function(id, result, srcPath) {
 
-  // console.log('processComplete', id, result, srcPath);
-
   results[id] = result;
 
   numProcesses--;
 
   if (numProcesses <= 0) {
 
-    results = cleanUpResults(results);
+    results = cleanResults(results);
 
     resultsCallback(results);
 
@@ -366,7 +375,7 @@ var processComplete = function(id, result, srcPath) {
 
 };
 
-var cleanUpResults = function(dirtyResults) {
+var cleanResults = function(dirtyResults) {
 
   var cleanResults = {};
 
@@ -438,6 +447,11 @@ var outputDebug = function(imgPath, completeCallback) {
 
       // Fillbox = purple
       color = 'rgba(255,0,255,0.3)';
+
+    } else if (e.type === TYPE_STITCH) {
+
+      // TODO - do debug drawing for stitch
+      continue;
 
     }
 

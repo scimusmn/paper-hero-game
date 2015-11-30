@@ -31,16 +31,16 @@ chokidar.watch(scanDir, watchOptions).on('add', function(path) {
 reader.setOutputPath('./public/characters/');
 
 // Monster name
-// var nameArr = [];
-// for (var i = 0; i < 11; i++) {
-//   nameArr.push({x:130 + (94.5 * i), y:124, w:82, h:98});
-// };
+var nameArr = [];
+for (var i = 0; i < 11; i++) {
+  nameArr.push({x:130 + (94.5 * i), y:124, w:82, h:98});
+};
 
-// reader.expectConcatText('name', nameArr);
+reader.expectStitch('name', nameArr);
 
 // Monster art...
-reader.expectArt('monster', 173, 370, 496, 658);
-reader.expectArt('projectile', 830, 408, 227, 227);
+// reader.expectArt('monster', 173, 370, 496, 658);
+// reader.expectArt('projectile', 830, 408, 227, 227);
 reader.expectArt('food', 830, 798, 227, 227);
 
 // Instruction loop boxes...
@@ -51,6 +51,7 @@ reader.expectFillBox('step4', 778, 1327, 170, 170, 3, 3);
 reader.expectFillBox('step5', 995, 1327, 170, 170, 3, 3);
 
 // TEMP - Every 30 seconds load local scan for testing.
+processScan(__dirname + '/public/example-scans/Image-001.png');
 setInterval(function() {
   var rInt = Math.ceil(Math.random() * 4);
   processScan(__dirname + '/public/example-scans/Image-00' + rInt + '.png');
@@ -79,16 +80,6 @@ function digestionComplete(results) {
   delete results.step3;
   delete results.step4;
   delete results.step5;
-
-  // Simplify asset paths by finding
-  // base path for every asset.
-  console.log(results.monster);
-
-
-
-  var trimmedPath = path.basename(results.monster);
-  trimmedPath = path.basename(trimmedPath);
-  console.log(trimmedPath);
 
   console.log('\nDigestion complete ... <{ BURP! }');
 

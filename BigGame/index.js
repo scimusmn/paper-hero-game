@@ -214,7 +214,6 @@ io.on('connection', function(socket) {
   // Forward events to specific controllers
   socket.on('controller-event', function(data) {
 
-    // console.log('Forwarding controller-event: ' + data.type + ', to socket: ' + data.socketid);
     io.sockets.connected[data.socketid].emit('controller-event', data);
 
   });
@@ -259,7 +258,7 @@ io.on('connection', function(socket) {
 // Listen for http requests on port <portNumber>
 http.listen(portNumber, function() {
 
-  console.log('SharedScreenGame - Listening to Node server on port ' + portNumber + '...');
+  console.log('BigGame - Listening to Node server on port ' + portNumber + '...');
 
 });
 
@@ -276,8 +275,8 @@ exports.updateCharacterManifest = function(manifest) {
 
 exports.addPlayableCharacter = function(characterId, characterData) {
 
-  console.log('***** NEW CHARACTER AVAILABLE! *****');
-  console.log('*** Enter code "' + characterId + '" to use. ***');
+  console.log('\n**** NEW CHARACTER AVAILABLE! *****');
+  console.log('**** Enter code "' + characterId + '" to use. ****');
   console.log('***********************************');
 
   if (!presenterScreenConnected) return;
