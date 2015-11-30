@@ -98,10 +98,8 @@ exports.expectStitch = function(id, rectArray) {
 *
 * A single box will return a boolean.
 * If you provide columns and rows,
-* the box will be split into an array
-* of fillable boxes, and you will be
-* returned an array of indices representing
-* all filled boxes. Pretty cool, eh?
+* the box will be split into a grid
+* and you will returned an array of booleans.
 *
 */
 exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
@@ -146,22 +144,18 @@ exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
 /**
 *
 * Digest
-* Process image for expected art and text.
+*
+* Process new image for all
+* expected regions.
 *
 */
 exports.digest = function(imgPath, completeCallback, _debug) {
 
   digestPath = outputPath + Date.now() + '/';
 
+  // Make fresh directory using timestamp
   if (!fs.existsSync(digestPath)) {
     fs.mkdirSync(digestPath);
-  }
-
-  // Export debug image
-  if (_debug && _debug === true) {
-    outputDebug(imgPath, function(debugPath) {
-      console.log('Debug prepared: ' + debugPath);
-    });
   }
 
   // Create filepath for image.
@@ -169,15 +163,26 @@ exports.digest = function(imgPath, completeCallback, _debug) {
 
   // Prep scan image as a whole.
   gm(imgPath)
-    .whiteThreshold('95%') // Make near whites white
-    .blackThreshold('5%') // Make near blacks black
+    .whiteThreshold('95%') // Make near-whites white
+    .blackThreshold('5%') // Make near-blacks black
     .trim() // Remove black scan border
     .write(prepPath, function(err) {
       if (err) {
         throw err;
       } else {
+
         console.log('Scan prepared:', prepPath);
+
+        // Export debug image
+        if (_debug && _debug === true) {
+          outputDebug(prepPath, function(debugPath) {
+            console.log('Debug prepared: ' + debugPath);
+          });
+        }
+
+        // Process the goods
         processRegions(prepPath, completeCallback);
+
       }
     });
 
@@ -412,7 +417,7 @@ var cleanResults = function(dirtyResults) {
 
   return cleanResults;
 
-}
+};
 
 /**
 *
@@ -450,7 +455,21 @@ var outputDebug = function(imgPath, completeCallback) {
 
     } else if (e.type === TYPE_STITCH) {
 
-      // TODO - do debug drawing for stitch
+      // Stitch = green
+      color = 'rgba(0,180,0,0.5)';
+      for (var s = 0; s < e.rect.length; s++) {
+
+        var stitchRect = e.rect[s];
+
+        // Stitch Rectangle
+        drawArgs += ' fill ' + color + ' rectangle ' + stitchRect.x + ',' + stitchRect.y + ',' + (stitchRect.x + stitchRect.w) + ',' + (stitchRect.y + stitchRect.h);
+
+        // Stitch Label
+        drawArgs += ' fill white text ' + (stitchRect.x + 5) + ',' + (stitchRect.y + 15) + ' ' + e.id + '_' + s;
+
+      };
+
+      // Skip normal drawing
       continue;
 
     }
@@ -467,9 +486,6 @@ var outputDebug = function(imgPath, completeCallback) {
 
   // Do drawing then save.
   gm(imgPath)
-    .whiteThreshold('95%') // Make near whites white
-    .blackThreshold('5%') // Make near blacks black
-    .trim() // Remove black scan border
     .draw(drawArgs)
     .write(debugPath, function(err) {
       if (err) {
