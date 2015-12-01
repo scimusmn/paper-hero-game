@@ -9,9 +9,7 @@ var fs = require('fs');// FileSystem
 var path = require('path');
 var gm = require('gm').subClass({imageMagick: true}); // GraphicMagick/ImageMagick
 var jsonfile = require('jsonfile');
-var tesseract = require('node-tesseract');// Tesseract (for OCR)
 
-var TYPE_TEXT = 'text';
 var TYPE_ART = 'art';
 var TYPE_STITCH = 'stitch';
 var TYPE_FILL = 'fill';
@@ -64,9 +62,6 @@ exports.loadFormData = function(path) {
 
         switch (e.type){
 
-          case TYPE_TEXT:
-            _this.expectText(key, e.x, e.y, e.w, e.h);
-            break;
           case TYPE_ART:
             _this.expectArt(key, e.x, e.y, e.w, e.h);
             break;
@@ -108,22 +103,6 @@ exports.expectArt = function(id, x, y, w, h, _trim, _transparent) {
                     type: TYPE_ART,
                     rect: {x:x, y:y, w:w, h:h},
                     options: {trim:trim, tranparent:transparent},
-                  };
-
-  expected.push(region);
-
-};
-
-/**
-*
-* Expect Text in specified region.
-*
-*/
-exports.expectText = function(id, x, y, w, h) {
-
-  var region = {    id: id,
-                    type: TYPE_TEXT,
-                    rect: {x:x, y:y, w:w, h:h},
                   };
 
   expected.push(region);
@@ -249,7 +228,7 @@ exports.digest = function(imgPath, completeCallback, _debug) {
 /**
 *
 * Process Regions
-* Cut out and process art, text, and fill-boxes.
+* Cut out and process art and fill-boxes.
 *
 */
 var processRegions = function(imgPath, completeCallback) {
@@ -266,31 +245,7 @@ var processNextRegion = function(imgPath) {
 
   var e = expected[expected.length - numProcesses];
 
-  if (e.type === TYPE_TEXT) {
-
-    var txtPath = digestPath + e.id + '.png';
-
-    gm(imgPath)
-      .crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y)
-      .write(txtPath, function(err) {
-        if (err) {
-          throw err;
-        } else {
-
-          console.log('Attempting OCR...');
-          tesseract.process(txtPath, function(err, text) {
-            if (err) {
-              throw err;
-            } else {
-              console.log('OCR success= ' + text);
-              processComplete(e.id, text, imgPath);
-            }
-          });
-
-        }
-      });
-
-  } else if (e.type === TYPE_ART) {
+  if (e.type === TYPE_ART) {
 
     var artPath = digestPath + e.id + '.png';
 
@@ -501,12 +456,7 @@ var outputDebug = function(imgPath, completeCallback) {
     var e = expected[i];
     var color = '';
 
-    if (e.type === TYPE_TEXT) {
-
-      // Text = blue
-      color = 'rgba(0,0,255,0.3)';
-
-    } else if (e.type === TYPE_ART) {
+    if (e.type === TYPE_ART) {
 
       // Art = red
       color = 'rgba(255,0,0,0.3)';
