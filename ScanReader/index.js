@@ -22,6 +22,7 @@ var expected = [];
 var results = {};
 var resultsCallback = {};
 var numProcesses = -1;
+var FGRIDKEY = 'F^G';
 
 /**
 *
@@ -125,7 +126,7 @@ exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
     for (var r = 0; r < rows; r++) {
       for (var c = 0; c < cols; c++) {
 
-        var region = {    id: 'F^G_' + id + '_' + index,
+        var region = {    id: FGRIDKEY + '_' + id + '_' + index,
                           type: TYPE_FILL,
                           rect: {x:x + (c * colWidth), y:y + (r * rowHeight), w:colWidth, h:rowHeight},
                         };
@@ -250,6 +251,8 @@ var processNextRegion = function(imgPath) {
 
   } else if (e.type === TYPE_FILL) {
 
+    // Scale down region to a 1x1 pixel,
+    // which auto-averages color data.
     gm(imgPath)
       .crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y)
       .shave(10, 10, 10)
@@ -259,6 +262,8 @@ var processNextRegion = function(imgPath) {
         if (err) {
           throw err;
         } else {
+
+          // Separate color data into RGB
           gm(buffer)
             .identify('%[fx:int(255*r+.5)],%[fx:int(255*g+.5)],%[fx:int(255*b+.5)]', function(err, info) {
               if (err) {
@@ -357,7 +362,8 @@ var appendStitchImages = function(region, imgPath) {
 /**
 *
 * Process Complete
-* All processes end here...
+*
+* Call this after each process completes.
 *
 */
 var processComplete = function(id, result, srcPath) {
@@ -388,7 +394,7 @@ var cleanResults = function(dirtyResults) {
     if (dirtyResults.hasOwnProperty(property)) {
 
       // Combine fill-grid results into single result array
-      if (property.indexOf('F^G') !== -1) {
+      if (property.indexOf(FGRIDKEY) !== -1) {
 
         // Concat grid results
         var split = property.split('_');
