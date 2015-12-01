@@ -35,11 +35,10 @@ exports.setOutputPath = function(path) {
 
 /**
 *
-* Load Form
+* Load Form Data
 *
-* Load and parse JSON that
-* represents all expected regions
-* for incoming scans
+* Parse JSON for all expected
+* regions in incoming scans
 *
 */
 exports.loadFormData = function(path) {
@@ -63,16 +62,24 @@ exports.loadFormData = function(path) {
         switch (e.type){
 
           case TYPE_ART:
-            _this.expectArt(key, e.x, e.y, e.w, e.h);
+
+            _this.expectArt(key, e.x, e.y, e.w, e.h, e.trim, e.transparent);
+
             break;
           case TYPE_FILL:
+
             _this.expectFillBox(key, e.x, e.y, e.w, e.h, e.cols, e.rows);
+
             break;
           case TYPE_STITCH:
+
             _this.expectStitch(key, e.rectArray);
+
             break;
           default:
+
             console.log('Warning unrecognized object type:', e.type);
+
             break;
 
         }
@@ -94,7 +101,7 @@ exports.loadFormData = function(path) {
 * Trim whitespace and return png.
 *
 */
-exports.expectArt = function(id, x, y, w, h, _trim, _transparent) {
+exports.expectArt = function(id, x, y, w, h, trim, transparent) {
 
   var trim = _trim || false;
   var transparent = _transparent || false;
@@ -139,10 +146,15 @@ exports.expectStitch = function(id, rectArray) {
 * and you will returned an array of booleans.
 *
 */
-exports.expectFillBox = function(id, x, y, w, h, _cols, _rows) {
+exports.expectFillBox = function(id, x, y, w, h, cols, rows) {
 
-  var cols = _cols || 1;
-  var rows = _rows || 1;
+  if (cols === undefined || cols === null) {
+    cols = 1;
+  }
+
+  if (rows === undefined || rows === null) {
+    rows = 1;
+  }
 
   if (cols === 1 && rows === 1) {
 
