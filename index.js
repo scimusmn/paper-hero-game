@@ -29,32 +29,13 @@ chokidar.watch(scanDir, watchOptions).on('add', function(path) {
 
 // Set up form for scan reader
 reader.setOutputPath('./public/characters/');
+reader.loadFormData('./public/forms/example.json');
 
-// Monster name
-var nameArr = [];
-for (var i = 0; i < 11; i++) {
-  nameArr.push({x:130 + (94.5 * i), y:124, w:82, h:98});
-};
-
-reader.expectStitch('name', nameArr);
-
-// Monster art...
-reader.expectArt('monster', 173, 370, 496, 658);
-reader.expectArt('projectile', 830, 408, 227, 227);
-reader.expectArt('food', 830, 798, 227, 227);
-
-// Instruction loop boxes...
-reader.expectFillBox('step1', 130, 1327, 170, 170, 3, 3);
-reader.expectFillBox('step2', 346, 1327, 170, 170, 3, 3);
-reader.expectFillBox('step3', 562, 1327, 170, 170, 3, 3);
-reader.expectFillBox('step4', 778, 1327, 170, 170, 3, 3);
-reader.expectFillBox('step5', 995, 1327, 170, 170, 3, 3);
-
-// TEMP - Every 30 seconds load local scan for testing.
-processScan(__dirname + '/public/example-scans/Image-001.png');
+// DEBUG - Every 30 seconds load local scan for testing.
+processScan(__dirname + '/work/example-scans/Image-001.png');
 setInterval(function() {
   var rInt = Math.ceil(Math.random() * 4);
-  processScan(__dirname + '/public/example-scans/Image-00' + rInt + '.png');
+  processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
 }, 30 * 1000);
 
 function processScan(formPath) {

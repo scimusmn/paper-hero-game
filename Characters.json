@@ -1,7 +1,9 @@
 {
-  "ADUR": {
-    "name": "./public/characters/1448920512706/name-stitched.png",
-    "food": "./public/characters/1448920512706/food.png",
+  "TMCT": {
+    "name": "/smash/characters/1448944725991/name-stitched.png",
+    "monster": "/smash/characters/1448944725991/monster.png",
+    "projectile": "/smash/characters/1448944725991/projectile.png",
+    "food": "/smash/characters/1448944725991/food.png",
     "steps": [
       4,
       4,
@@ -9,11 +11,13 @@
       5,
       5
     ],
-    "datecreated": "1448920515560"
+    "datecreated": "1448944729047"
   },
-  "CHVP": {
-    "name": "./public/characters/1448920539422/name-stitched.png",
-    "food": "./public/characters/1448920539422/food.png",
+  "RVLN": {
+    "name": "/smash/characters/1448944755999/name-stitched.png",
+    "monster": "/smash/characters/1448944755999/monster.png",
+    "projectile": "/smash/characters/1448944755999/projectile.png",
+    "food": "/smash/characters/1448944755999/food.png",
     "steps": [
       4,
       4,
@@ -21,11 +25,1698 @@
       5,
       5
     ],
-    "datecreated": "1448920542374"
+    "datecreated": "1448944759211"
   },
-  "UIZU": {
-    "name": "./public/characters/1448920555121/name-stitched.png",
-    "food": "./public/characters/1448920555121/food.png",
+  "KMGS": {
+    "monster": "./public/characters/1448947715194/monster.png",
+    "projectile": "./public/characters/1448947715194/projectile.png",
+    "food": "./public/characters/1448947715194/food.png",
+    "datecreated": "1448947715672"
+  },
+  "VEDM": {
+    "monster": "./public/characters/1448947835300/monster.png",
+    "projectile": "./public/characters/1448947835300/projectile.png",
+    "food": "./public/characters/1448947835300/food.png",
+    "datecreated": "1448947835818"
+  },
+  "TXTO": {
+    "monster": "./public/characters/1448948307556/monster.png",
+    "projectile": "./public/characters/1448948307556/projectile.png",
+    "food": "./public/characters/1448948307556/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "datecreated": "1448948310465"
+  },
+  "QKJQ": {
+    "monster": "./public/characters/1448948560098/monster.png",
+    "projectile": "./public/characters/1448948560098/projectile.png",
+    "food": "./public/characters/1448948560098/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948560098/name-stitched.png",
+    "datecreated": "1448948563014"
+  },
+  "AKKT": {
+    "monster": "./public/characters/1448948590108/monster.png",
+    "projectile": "./public/characters/1448948590108/projectile.png",
+    "food": "./public/characters/1448948590108/food.png",
+    "step1": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "step3": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948590108/name-stitched.png",
+    "datecreated": "1448948593096"
+  },
+  "MHGG": {
+    "monster": "./public/characters/1448948620117/monster.png",
+    "projectile": "./public/characters/1448948620117/projectile.png",
+    "food": "./public/characters/1448948620117/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948620117/name-stitched.png",
+    "datecreated": "1448948623063"
+  },
+  "FQYK": {
+    "monster": "./public/characters/1448948650126/monster.png",
+    "projectile": "./public/characters/1448948650126/projectile.png",
+    "food": "./public/characters/1448948650126/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948650126/name-stitched.png",
+    "datecreated": "1448948653216"
+  },
+  "GQWW": {
+    "monster": "./public/characters/1448948680129/monster.png",
+    "projectile": "./public/characters/1448948680129/projectile.png",
+    "food": "./public/characters/1448948680129/food.png",
+    "step1": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "step3": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948680129/name-stitched.png",
+    "datecreated": "1448948683318"
+  },
+  "XSSU": {
+    "monster": "./public/characters/1448948710133/monster.png",
+    "projectile": "./public/characters/1448948710133/projectile.png",
+    "food": "./public/characters/1448948710133/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948710133/name-stitched.png",
+    "datecreated": "1448948713284"
+  },
+  "CQYC": {
+    "monster": "./public/characters/1448948740143/monster.png",
+    "projectile": "./public/characters/1448948740143/projectile.png",
+    "food": "./public/characters/1448948740143/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948740143/name-stitched.png",
+    "datecreated": "1448948743223"
+  },
+  "GQSM": {
+    "monster": "./public/characters/1448948770150/monster.png",
+    "projectile": "./public/characters/1448948770150/projectile.png",
+    "food": "./public/characters/1448948770150/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948770150/name-stitched.png",
+    "datecreated": "1448948773293"
+  },
+  "VUMA": {
+    "monster": "./public/characters/1448948800155/monster.png",
+    "projectile": "./public/characters/1448948800155/projectile.png",
+    "food": "./public/characters/1448948800155/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948800155/name-stitched.png",
+    "datecreated": "1448948803212"
+  },
+  "ZKNJ": {
+    "monster": "./public/characters/1448948830160/monster.png",
+    "projectile": "./public/characters/1448948830160/projectile.png",
+    "food": "./public/characters/1448948830160/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948830160/name-stitched.png",
+    "datecreated": "1448948833136"
+  },
+  "BAII": {
+    "monster": "./public/characters/1448948860163/monster.png",
+    "projectile": "./public/characters/1448948860163/projectile.png",
+    "food": "./public/characters/1448948860163/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948860163/name-stitched.png",
+    "datecreated": "1448948863142"
+  },
+  "LDPI": {
+    "monster": "./public/characters/1448948890172/monster.png",
+    "projectile": "./public/characters/1448948890172/projectile.png",
+    "food": "./public/characters/1448948890172/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948890172/name-stitched.png",
+    "datecreated": "1448948893054"
+  },
+  "FBDB": {
+    "monster": "./public/characters/1448948920182/monster.png",
+    "projectile": "./public/characters/1448948920182/projectile.png",
+    "food": "./public/characters/1448948920182/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948920182/name-stitched.png",
+    "datecreated": "1448948923159"
+  },
+  "YERQ": {
+    "monster": "./public/characters/1448948950190/monster.png",
+    "projectile": "./public/characters/1448948950190/projectile.png",
+    "food": "./public/characters/1448948950190/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948950190/name-stitched.png",
+    "datecreated": "1448948953121"
+  },
+  "KXWA": {
+    "monster": "./public/characters/1448948980197/monster.png",
+    "projectile": "./public/characters/1448948980197/projectile.png",
+    "food": "./public/characters/1448948980197/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448948980197/name-stitched.png",
+    "datecreated": "1448948983271"
+  },
+  "UKKV": {
+    "monster": "./public/characters/1448949010202/monster.png",
+    "projectile": "./public/characters/1448949010202/projectile.png",
+    "food": "./public/characters/1448949010202/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949010202/name-stitched.png",
+    "datecreated": "1448949013350"
+  },
+  "FXLQ": {
+    "monster": "./public/characters/1448949040209/monster.png",
+    "projectile": "./public/characters/1448949040209/projectile.png",
+    "food": "./public/characters/1448949040209/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949040209/name-stitched.png",
+    "datecreated": "1448949043344"
+  },
+  "ODHT": {
+    "monster": "./public/characters/1448949070220/monster.png",
+    "projectile": "./public/characters/1448949070220/projectile.png",
+    "food": "./public/characters/1448949070220/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949070220/name-stitched.png",
+    "datecreated": "1448949073189"
+  },
+  "YUTC": {
+    "monster": "./public/characters/1448949100232/monster.png",
+    "projectile": "./public/characters/1448949100232/projectile.png",
+    "food": "./public/characters/1448949100232/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949100232/name-stitched.png",
+    "datecreated": "1448949103228"
+  },
+  "CPDL": {
+    "monster": "./public/characters/1448949130240/monster.png",
+    "projectile": "./public/characters/1448949130240/projectile.png",
+    "food": "./public/characters/1448949130240/food.png",
+    "step1": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "step3": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949130240/name-stitched.png",
+    "datecreated": "1448949133240"
+  },
+  "GLMG": {
+    "monster": "./public/characters/1448949160248/monster.png",
+    "projectile": "./public/characters/1448949160248/projectile.png",
+    "food": "./public/characters/1448949160248/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949160248/name-stitched.png",
+    "datecreated": "1448949163225"
+  },
+  "TTXM": {
+    "monster": "./public/characters/1448949190258/monster.png",
+    "projectile": "./public/characters/1448949190258/projectile.png",
+    "food": "./public/characters/1448949190258/food.png",
+    "step1": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "step3": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949190258/name-stitched.png",
+    "datecreated": "1448949193421"
+  },
+  "HMQI": {
+    "monster": "./public/characters/1448949220264/monster.png",
+    "projectile": "./public/characters/1448949220264/projectile.png",
+    "food": "./public/characters/1448949220264/food.png",
+    "step1": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true
+    ],
+    "step3": [
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949220264/name-stitched.png",
+    "datecreated": "1448949223331"
+  },
+  "LZHI": {
+    "monster": "./public/characters/1448949425477/monster.png",
+    "projectile": "./public/characters/1448949425477/projectile.png",
+    "food": "./public/characters/1448949425477/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949425477/name-stitched.png",
+    "datecreated": "1448949428525"
+  },
+  "XXJE": {
+    "monster": "./public/characters/1448949455481/monster.png",
+    "projectile": "./public/characters/1448949455481/projectile.png",
+    "food": "./public/characters/1448949455481/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949455481/name-stitched.png",
+    "datecreated": "1448949458637"
+  },
+  "PKVR": {
+    "monster": "./public/characters/1448949485491/monster.png",
+    "projectile": "./public/characters/1448949485491/projectile.png",
+    "food": "./public/characters/1448949485491/food.png",
+    "step1": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step2": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step3": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step4": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false
+    ],
+    "step5": [
+      false,
+      false,
+      false,
+      false,
+      true,
+      false,
+      false,
+      false,
+      false
+    ],
+    "name": "./public/characters/1448949485491/name-stitched.png",
+    "datecreated": "1448949488660"
+  },
+  "VFGI": {
+    "monster": "/smash/characters/1448949535981/monster.png",
+    "projectile": "/smash/characters/1448949535981/projectile.png",
+    "food": "/smash/characters/1448949535981/food.png",
+    "name": "/smash/characters/1448949535981/name-stitched.png",
     "steps": [
       4,
       4,
@@ -33,23 +1724,13 @@
       5,
       5
     ],
-    "datecreated": "1448920558057"
+    "datecreated": "1448949539125"
   },
-  "NBWS": {
-    "name": "./public/characters/1448920571337/name-stitched.png",
-    "food": "./public/characters/1448920571337/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448920574211"
-  },
-  "VMRB": {
-    "name": "./public/characters/1448920601349/name-stitched.png",
-    "food": "./public/characters/1448920601349/food.png",
+  "ODDP": {
+    "monster": "/smash/characters/1448949565990/monster.png",
+    "projectile": "/smash/characters/1448949565990/projectile.png",
+    "food": "/smash/characters/1448949565990/food.png",
+    "name": "/smash/characters/1448949565990/name-stitched.png",
     "steps": [
       6,
       6,
@@ -57,47 +1738,13 @@
       6,
       4
     ],
-    "datecreated": "1448920604310"
+    "datecreated": "1448949569065"
   },
-  "AIPM": {
-    "name": "./public/characters/1448920640226/name-stitched.png",
-    "food": "./public/characters/1448920640226/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448920643097"
-  },
-  "DBDA": {
-    "name": "./public/characters/1448920670232/name-stitched.png",
-    "food": "./public/characters/1448920670232/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448920673207"
-  },
-  "NEMF": {
-    "name": "./public/characters/1448920700241/name-stitched.png",
-    "food": "./public/characters/1448920700241/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448920703117"
-  },
-  "XNQX": {
-    "name": "./public/characters/1448920730252/name-stitched.png",
-    "food": "./public/characters/1448920730252/food.png",
+  "QWHY": {
+    "monster": "/smash/characters/1448949595999/monster.png",
+    "projectile": "/smash/characters/1448949595999/projectile.png",
+    "food": "/smash/characters/1448949595999/food.png",
+    "name": "/smash/characters/1448949595999/name-stitched.png",
     "steps": [
       5,
       1,
@@ -105,35 +1752,13 @@
       5,
       5
     ],
-    "datecreated": "1448920733178"
+    "datecreated": "1448949599172"
   },
-  "PARJ": {
-    "name": "./public/characters/1448920760264/name-stitched.png",
-    "food": "./public/characters/1448920760264/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448920763125"
-  },
-  "ALQB": {
-    "name": "./public/characters/1448920790276/name-stitched.png",
-    "food": "./public/characters/1448920790276/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448920793235"
-  },
-  "LLQD": {
-    "name": "./public/characters/1448920810508/name-stitched.png",
-    "food": "./public/characters/1448920810508/food.png",
+  "JFED": {
+    "monster": "/smash/characters/1448949695938/monster.png",
+    "projectile": "/smash/characters/1448949695938/projectile.png",
+    "food": "/smash/characters/1448949695938/food.png",
+    "name": "/smash/characters/1448949695938/name-stitched.png",
     "steps": [
       4,
       4,
@@ -141,23 +1766,13 @@
       5,
       5
     ],
-    "datecreated": "1448920813364"
+    "datecreated": "1448949698977"
   },
-  "UHLV": {
-    "name": "./public/characters/1448920840513/name-stitched.png",
-    "food": "./public/characters/1448920840513/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448920843497"
-  },
-  "XOUU": {
-    "name": "./public/characters/1448920879921/name-stitched.png",
-    "food": "./public/characters/1448920879921/food.png",
+  "SDIJ": {
+    "monster": "/smash/characters/1448950278704/monster.png",
+    "projectile": "/smash/characters/1448950278704/projectile.png",
+    "food": "/smash/characters/1448950278704/food.png",
+    "name": "/smash/characters/1448950278704/name-stitched.png",
     "steps": [
       4,
       4,
@@ -165,870 +1780,6 @@
       5,
       5
     ],
-    "datecreated": "1448920882798"
-  },
-  "LYMK": {
-    "name": "./public/characters/1448920909926/name-stitched.png",
-    "food": "./public/characters/1448920909926/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448920912821"
-  },
-  "DUEW": {
-    "name": "./public/characters/1448920944613/name-stitched.png",
-    "food": "./public/characters/1448920944613/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448920947543"
-  },
-  "KMJJ": {
-    "name": "./public/characters/1448920974621/name-stitched.png",
-    "food": "./public/characters/1448920974621/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448920977581"
-  },
-  "YJEX": {
-    "name": "./public/characters/1448920979355/name-stitched.png",
-    "food": "./public/characters/1448920979355/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448920982252"
-  },
-  "UBPR": {
-    "name": "./public/characters/1448921009362/name-stitched.png",
-    "food": "./public/characters/1448921009362/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921012266"
-  },
-  "QIXG": {
-    "name": "./public/characters/1448921019234/name-stitched.png",
-    "food": "./public/characters/1448921019234/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921022103"
-  },
-  "TIFS": {
-    "name": "./public/characters/1448921049243/name-stitched.png",
-    "food": "./public/characters/1448921049243/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448921052159"
-  },
-  "WVTC": {
-    "name": "./public/characters/1448921079252/name-stitched.png",
-    "food": "./public/characters/1448921079252/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921082238"
-  },
-  "BSTS": {
-    "name": "./public/characters/1448921109264/name-stitched.png",
-    "food": "./public/characters/1448921109264/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448921112209"
-  },
-  "YQSM": {
-    "name": "./public/characters/1448921120666/name-stitched.png",
-    "food": "./public/characters/1448921120666/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921123601"
-  },
-  "NRFJ": {
-    "name": "./public/characters/1448921427697/name-stitched.png",
-    "food": "./public/characters/1448921427697/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921430641"
-  },
-  "KVMJ": {
-    "name": "./public/characters/1448921457707/name-stitched.png",
-    "food": "./public/characters/1448921457707/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921460585"
-  },
-  "BZFQ": {
-    "name": "./public/characters/1448921487721/name-stitched.png",
-    "food": "./public/characters/1448921487721/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921490577"
-  },
-  "IDBI": {
-    "name": "./public/characters/1448921517736/name-stitched.png",
-    "food": "./public/characters/1448921517736/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448921520879"
-  },
-  "NCWD": {
-    "name": "./public/characters/1448921547751/name-stitched.png",
-    "food": "./public/characters/1448921547751/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448921550670"
-  },
-  "GERT": {
-    "name": "./public/characters/1448921577764/name-stitched.png",
-    "food": "./public/characters/1448921577764/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448921580616"
-  },
-  "ERFQ": {
-    "name": "./public/characters/1448921607775/name-stitched.png",
-    "food": "./public/characters/1448921607775/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448921610663"
-  },
-  "ULZS": {
-    "name": "./public/characters/1448921637786/name-stitched.png",
-    "food": "./public/characters/1448921637786/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921640675"
-  },
-  "NTOD": {
-    "name": "./public/characters/1448921667796/name-stitched.png",
-    "food": "./public/characters/1448921667796/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921670690"
-  },
-  "VSDY": {
-    "name": "./public/characters/1448921697808/name-stitched.png",
-    "food": "./public/characters/1448921697808/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448921700714"
-  },
-  "GYTR": {
-    "name": "./public/characters/1448921727820/name-stitched.png",
-    "food": "./public/characters/1448921727820/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921730804"
-  },
-  "EKBM": {
-    "name": "./public/characters/1448921757836/name-stitched.png",
-    "food": "./public/characters/1448921757836/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921760814"
-  },
-  "NFUX": {
-    "name": "./public/characters/1448921787843/name-stitched.png",
-    "food": "./public/characters/1448921787843/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921790809"
-  },
-  "NCRF": {
-    "name": "/smash/characters/1448921821370/name-stitched.png",
-    "monster": "/smash/characters/1448921821370/monster.png",
-    "projectile": "/smash/characters/1448921821370/projectile.png",
-    "food": "/smash/characters/1448921821370/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448921824489"
-  },
-  "MTFB": {
-    "name": "/smash/characters/1448921851379/name-stitched.png",
-    "monster": "/smash/characters/1448921851379/monster.png",
-    "projectile": "/smash/characters/1448921851379/projectile.png",
-    "food": "/smash/characters/1448921851379/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921854443"
-  },
-  "KPKY": {
-    "name": "/smash/characters/1448921881391/name-stitched.png",
-    "monster": "/smash/characters/1448921881391/monster.png",
-    "projectile": "/smash/characters/1448921881391/projectile.png",
-    "food": "/smash/characters/1448921881391/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448921884534"
-  },
-  "TEYA": {
-    "name": "/smash/characters/1448921911404/name-stitched.png",
-    "monster": "/smash/characters/1448921911404/monster.png",
-    "projectile": "/smash/characters/1448921911404/projectile.png",
-    "food": "/smash/characters/1448921911404/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448921914473"
-  },
-  "OHZC": {
-    "name": "/smash/characters/1448921941419/name-stitched.png",
-    "monster": "/smash/characters/1448921941419/monster.png",
-    "projectile": "/smash/characters/1448921941419/projectile.png",
-    "food": "/smash/characters/1448921941419/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921944437"
-  },
-  "DCGR": {
-    "name": "/smash/characters/1448921971432/name-stitched.png",
-    "monster": "/smash/characters/1448921971432/monster.png",
-    "projectile": "/smash/characters/1448921971432/projectile.png",
-    "food": "/smash/characters/1448921971432/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448921974481"
-  },
-  "POWW": {
-    "name": "/smash/characters/1448922001446/name-stitched.png",
-    "monster": "/smash/characters/1448922001446/monster.png",
-    "projectile": "/smash/characters/1448922001446/projectile.png",
-    "food": "/smash/characters/1448922001446/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922004505"
-  },
-  "PNOX": {
-    "name": "/smash/characters/1448922031461/name-stitched.png",
-    "monster": "/smash/characters/1448922031461/monster.png",
-    "projectile": "/smash/characters/1448922031461/projectile.png",
-    "food": "/smash/characters/1448922031461/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922034481"
-  },
-  "BNHR": {
-    "name": "/smash/characters/1448922061475/name-stitched.png",
-    "monster": "/smash/characters/1448922061475/monster.png",
-    "projectile": "/smash/characters/1448922061475/projectile.png",
-    "food": "/smash/characters/1448922061475/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922064559"
-  },
-  "PHWW": {
-    "name": "/smash/characters/1448922091488/name-stitched.png",
-    "monster": "/smash/characters/1448922091488/monster.png",
-    "projectile": "/smash/characters/1448922091488/projectile.png",
-    "food": "/smash/characters/1448922091488/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922094561"
-  },
-  "MMGT": {
-    "name": "/smash/characters/1448922121501/name-stitched.png",
-    "monster": "/smash/characters/1448922121501/monster.png",
-    "projectile": "/smash/characters/1448922121501/projectile.png",
-    "food": "/smash/characters/1448922121501/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922124623"
-  },
-  "RHJI": {
-    "name": "/smash/characters/1448922151513/name-stitched.png",
-    "monster": "/smash/characters/1448922151513/monster.png",
-    "projectile": "/smash/characters/1448922151513/projectile.png",
-    "food": "/smash/characters/1448922151513/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922154603"
-  },
-  "DXON": {
-    "name": "/smash/characters/1448922181527/name-stitched.png",
-    "monster": "/smash/characters/1448922181527/monster.png",
-    "projectile": "/smash/characters/1448922181527/projectile.png",
-    "food": "/smash/characters/1448922181527/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922184578"
-  },
-  "OKOY": {
-    "name": "/smash/characters/1448922211540/name-stitched.png",
-    "monster": "/smash/characters/1448922211540/monster.png",
-    "projectile": "/smash/characters/1448922211540/projectile.png",
-    "food": "/smash/characters/1448922211540/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922214576"
-  },
-  "RVTJ": {
-    "name": "/smash/characters/1448922241552/name-stitched.png",
-    "monster": "/smash/characters/1448922241552/monster.png",
-    "projectile": "/smash/characters/1448922241552/projectile.png",
-    "food": "/smash/characters/1448922241552/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922244653"
-  },
-  "RYGE": {
-    "name": "/smash/characters/1448922271562/name-stitched.png",
-    "monster": "/smash/characters/1448922271562/monster.png",
-    "projectile": "/smash/characters/1448922271562/projectile.png",
-    "food": "/smash/characters/1448922271562/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922274828"
-  },
-  "IEOA": {
-    "name": "/smash/characters/1448922301571/name-stitched.png",
-    "monster": "/smash/characters/1448922301571/monster.png",
-    "projectile": "/smash/characters/1448922301571/projectile.png",
-    "food": "/smash/characters/1448922301571/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922304797"
-  },
-  "QZEK": {
-    "name": "/smash/characters/1448922331582/name-stitched.png",
-    "monster": "/smash/characters/1448922331582/monster.png",
-    "projectile": "/smash/characters/1448922331582/projectile.png",
-    "food": "/smash/characters/1448922331582/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922334642"
-  },
-  "XGDX": {
-    "name": "/smash/characters/1448922361592/name-stitched.png",
-    "monster": "/smash/characters/1448922361592/monster.png",
-    "projectile": "/smash/characters/1448922361592/projectile.png",
-    "food": "/smash/characters/1448922361592/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922364756"
-  },
-  "ERFN": {
-    "name": "/smash/characters/1448922391607/name-stitched.png",
-    "monster": "/smash/characters/1448922391607/monster.png",
-    "projectile": "/smash/characters/1448922391607/projectile.png",
-    "food": "/smash/characters/1448922391607/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922394650"
-  },
-  "BMRS": {
-    "name": "/smash/characters/1448922421620/name-stitched.png",
-    "monster": "/smash/characters/1448922421620/monster.png",
-    "projectile": "/smash/characters/1448922421620/projectile.png",
-    "food": "/smash/characters/1448922421620/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922424800"
-  },
-  "TTHE": {
-    "name": "/smash/characters/1448922451631/name-stitched.png",
-    "monster": "/smash/characters/1448922451631/monster.png",
-    "projectile": "/smash/characters/1448922451631/projectile.png",
-    "food": "/smash/characters/1448922451631/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922454725"
-  },
-  "XXGD": {
-    "name": "/smash/characters/1448922481642/name-stitched.png",
-    "monster": "/smash/characters/1448922481642/monster.png",
-    "projectile": "/smash/characters/1448922481642/projectile.png",
-    "food": "/smash/characters/1448922481642/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922484678"
-  },
-  "MADC": {
-    "name": "/smash/characters/1448922511655/name-stitched.png",
-    "monster": "/smash/characters/1448922511655/monster.png",
-    "projectile": "/smash/characters/1448922511655/projectile.png",
-    "food": "/smash/characters/1448922511655/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922514842"
-  },
-  "DHAF": {
-    "name": "/smash/characters/1448922541667/name-stitched.png",
-    "monster": "/smash/characters/1448922541667/monster.png",
-    "projectile": "/smash/characters/1448922541667/projectile.png",
-    "food": "/smash/characters/1448922541667/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922544977"
-  },
-  "VPYW": {
-    "name": "/smash/characters/1448922571685/name-stitched.png",
-    "monster": "/smash/characters/1448922571685/monster.png",
-    "projectile": "/smash/characters/1448922571685/projectile.png",
-    "food": "/smash/characters/1448922571685/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922574808"
-  },
-  "VINI": {
-    "name": "/smash/characters/1448922601699/name-stitched.png",
-    "monster": "/smash/characters/1448922601699/monster.png",
-    "projectile": "/smash/characters/1448922601699/projectile.png",
-    "food": "/smash/characters/1448922601699/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922604870"
-  },
-  "YRUC": {
-    "name": "/smash/characters/1448922631712/name-stitched.png",
-    "monster": "/smash/characters/1448922631712/monster.png",
-    "projectile": "/smash/characters/1448922631712/projectile.png",
-    "food": "/smash/characters/1448922631712/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922634782"
-  },
-  "TLQV": {
-    "name": "/smash/characters/1448922661723/name-stitched.png",
-    "monster": "/smash/characters/1448922661723/monster.png",
-    "projectile": "/smash/characters/1448922661723/projectile.png",
-    "food": "/smash/characters/1448922661723/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922664792"
-  },
-  "GINJ": {
-    "name": "/smash/characters/1448922691735/name-stitched.png",
-    "monster": "/smash/characters/1448922691735/monster.png",
-    "projectile": "/smash/characters/1448922691735/projectile.png",
-    "food": "/smash/characters/1448922691735/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922694850"
-  },
-  "JWXV": {
-    "name": "/smash/characters/1448922721748/name-stitched.png",
-    "monster": "/smash/characters/1448922721748/monster.png",
-    "projectile": "/smash/characters/1448922721748/projectile.png",
-    "food": "/smash/characters/1448922721748/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922725006"
-  },
-  "SYOB": {
-    "name": "/smash/characters/1448922751761/name-stitched.png",
-    "monster": "/smash/characters/1448922751761/monster.png",
-    "projectile": "/smash/characters/1448922751761/projectile.png",
-    "food": "/smash/characters/1448922751761/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922754825"
-  },
-  "WSOE": {
-    "name": "/smash/characters/1448922781774/name-stitched.png",
-    "monster": "/smash/characters/1448922781774/monster.png",
-    "projectile": "/smash/characters/1448922781774/projectile.png",
-    "food": "/smash/characters/1448922781774/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448922784948"
-  },
-  "NTRI": {
-    "name": "/smash/characters/1448922811785/name-stitched.png",
-    "monster": "/smash/characters/1448922811785/monster.png",
-    "projectile": "/smash/characters/1448922811785/projectile.png",
-    "food": "/smash/characters/1448922811785/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922815019"
-  },
-  "PWZO": {
-    "name": "/smash/characters/1448922841798/name-stitched.png",
-    "monster": "/smash/characters/1448922841798/monster.png",
-    "projectile": "/smash/characters/1448922841798/projectile.png",
-    "food": "/smash/characters/1448922841798/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922844994"
-  },
-  "BDDS": {
-    "name": "/smash/characters/1448922871810/name-stitched.png",
-    "monster": "/smash/characters/1448922871810/monster.png",
-    "projectile": "/smash/characters/1448922871810/projectile.png",
-    "food": "/smash/characters/1448922871810/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922874869"
-  },
-  "UFNN": {
-    "name": "/smash/characters/1448922901823/name-stitched.png",
-    "monster": "/smash/characters/1448922901823/monster.png",
-    "projectile": "/smash/characters/1448922901823/projectile.png",
-    "food": "/smash/characters/1448922901823/food.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "datecreated": "1448922904927"
-  },
-  "YZKW": {
-    "name": "/smash/characters/1448922931839/name-stitched.png",
-    "monster": "/smash/characters/1448922931839/monster.png",
-    "projectile": "/smash/characters/1448922931839/projectile.png",
-    "food": "/smash/characters/1448922931839/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922934898"
-  },
-  "BPIS": {
-    "name": "/smash/characters/1448922961853/name-stitched.png",
-    "monster": "/smash/characters/1448922961853/monster.png",
-    "projectile": "/smash/characters/1448922961853/projectile.png",
-    "food": "/smash/characters/1448922961853/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448922964878"
-  },
-  "EAUG": {
-    "name": "/smash/characters/1448922991864/name-stitched.png",
-    "monster": "/smash/characters/1448922991864/monster.png",
-    "projectile": "/smash/characters/1448922991864/projectile.png",
-    "food": "/smash/characters/1448922991864/food.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "datecreated": "1448922995098"
-  },
-  "QBVS": {
-    "name": "/smash/characters/1448923021873/name-stitched.png",
-    "monster": "/smash/characters/1448923021873/monster.png",
-    "projectile": "/smash/characters/1448923021873/projectile.png",
-    "food": "/smash/characters/1448923021873/food.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "datecreated": "1448923024906"
-  },
-  "JGGG": {
-    "name": "/smash/characters/1448923051882/name-stitched.png",
-    "monster": "/smash/characters/1448923051882/monster.png",
-    "projectile": "/smash/characters/1448923051882/projectile.png",
-    "food": "/smash/characters/1448923051882/food.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "datecreated": "1448923055009"
+    "datecreated": "1448950281736"
   }
 }

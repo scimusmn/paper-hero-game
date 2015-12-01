@@ -1,7 +1,6 @@
 /**
 *
 * ScanReader.js
-*
 * tnordberg@smm.org
 *
 */
@@ -9,6 +8,7 @@
 var fs = require('fs');// FileSystem
 var path = require('path');
 var gm = require('gm').subClass({imageMagick: true}); // GraphicMagick/ImageMagick
+var jsonfile = require('jsonfile');
 var tesseract = require('node-tesseract');// Tesseract (for OCR)
 
 var TYPE_TEXT = 'text';
@@ -32,6 +32,63 @@ var FGRIDKEY = 'F^G';
 exports.setOutputPath = function(path) {
 
   outputPath = path;
+
+};
+
+/**
+*
+* Load Form
+*
+* Load and parse JSON that
+* represents all expected regions
+* for incoming scans
+*
+*/
+exports.loadFormData = function(path) {
+
+  var _this = this;
+
+  jsonfile.readFile(path, function(err, regions) {
+  if (err) {
+
+    console.log('No form data found at: ' + path);
+    throw err;
+
+  } else {
+
+    for (var key in regions) {
+
+      if (regions.hasOwnProperty(key)) {
+
+        var e = regions[key];
+
+        switch (e.type){
+
+          case TYPE_TEXT:
+            _this.expectText(key, e.x, e.y, e.w, e.h);
+            break;
+          case TYPE_ART:
+            _this.expectArt(key, e.x, e.y, e.w, e.h);
+            break;
+          case TYPE_FILL:
+            _this.expectFillBox(key, e.x, e.y, e.w, e.h, e.cols, e.rows);
+            break;
+          case TYPE_STITCH:
+            _this.expectStitch(key, e.rectArray);
+            break;
+          default:
+            console.log('Warning unrecognized object type:', e.type);
+            break;
+
+        }
+
+      }
+
+    }
+
+  }
+
+});
 
 };
 
