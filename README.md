@@ -7,8 +7,6 @@ This project requires the ImageMagick command line tool.
 
 You can install via HomeBrew:
 
-```brew install tesseract --all-languages```
-
 ```brew install imagemagick```
 
 
