@@ -198,7 +198,7 @@ exports.expectFillBox = function(id, x, y, w, h, cols, rows) {
 * expected regions.
 *
 */
-exports.digest = function(imgPath, completeCallback, _debug) {
+exports.digest = function(imgPath, completeCallback, skipDebug) {
 
   digestPath = outputPath + Date.now() + '/';
 
@@ -223,7 +223,7 @@ exports.digest = function(imgPath, completeCallback, _debug) {
         console.log('Scan prepared:', prepPath);
 
         // Export debug image
-        if (_debug && _debug === true) {
+        if (!skipDebug || skipDebug === false) {
           outputDebug(prepPath, function(debugPath) {
             console.log('Debug prepared: ' + debugPath);
           });
