@@ -28,9 +28,9 @@ index.js
 ```javascript
   var artEater = require('art-eater');
   
+  artEater.expect('./public/forms/regions.json');
   artEater.setOutputPath('./public/output/');
-  artEater.expect('./regions.json');
-  artEater.watch('./public/your-scanner-saves-to-here/', onScanDigested);
+  artEater.watch('./public/scanner/', onScanDigested);
 
   function onScanDigested(results) {
 
