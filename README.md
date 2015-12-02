@@ -1,4 +1,4 @@
-###Paper Art Eater
+#Paper Art Eater
 Automated form reader for quickly integrating hand-drawn art into exhibits.
 
 ![Art Eater](http://www.animalstown.com/animals/a/anteater/anteater-image-04.jpg "Art Eater")
@@ -24,7 +24,7 @@ Types of regions:
 
 ## Example usage
 
-form.json
+###form.json
 ```json
 {
   "myArt": {
@@ -63,7 +63,7 @@ form.json
 }
 ```
 
-index.js
+###index.js
 ```javascript
   var artEater = require('art-eater');
   artEater.setOutputPath('./public/output/');
