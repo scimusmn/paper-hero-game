@@ -24,7 +24,23 @@ Types of regions:
 
 ## Example usage
 
-###form.json
+index.js
+```javascript
+  var artEater = require('art-eater');
+  artEater.setOutputPath('./public/output/');
+  artEater.expect('./regions.json');
+  artEater.watch('./public/your-scanner-saves-to-here/', onScanDigested);
+
+  function onScanDigested(results) {
+
+    console.log(results.myArt); // './public/output/123456789/myArt.png'
+    console.log(results.myFillGrid); // [false, false, true, false, true, true, false, false, true]
+    console.log(results.myStitchedImage); // './public/output/123456789/myStitchedImage.png'
+
+  }
+```
+
+form.json
 ```json
 {
   "myArt": {
@@ -62,21 +78,3 @@ Types of regions:
   }
 }
 ```
-
-###index.js
-```javascript
-  var artEater = require('art-eater');
-  artEater.setOutputPath('./public/output/');
-  artEater.expect('./regions.json');
-  artEater.watch('./public/your-scanner-saves-to-here/', onScanDigested);
-
-  function onScanDigested(results) {
-
-    console.log(results.myArt); // './public/output/123456789/myArt.png'
-    console.log(results.myFillGrid); // [false, false, true, false, true, true, false, false, true]
-    console.log(results.myStitchedImage); // './public/output/123456789/myStitchedImage.png'
-
-  }
-```
-
-
