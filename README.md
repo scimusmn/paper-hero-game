@@ -11,10 +11,10 @@ You can install via HomeBrew:
 
 
 #Status
-In-progress prototype. Will eventually be separated into a node package and example usage project. Don't even pay attention to the below info because it will change.
+In-progress prototype. This is all speculation. Will eventually be separated into a node package and example usage project. Don't even pay attention to the below info because it will change.
 
 ## Forms
-Provide Art Reader a json file that represents the regions you'd like returned. You must know beforehand what size/resolution your scans will be. Once that is decided you can check the alignment of your regions by checking the debug images (e.g. ```MyScan-1-debug.png```).
+Provide Art Reader a json file that represents the regions you'd like returned. You must know beforehand what size/resolution your scans will be. Once that is decided check the alignment of your regions by checking the exported debug images (e.g. ```MyScan-1-debug.png```).
 
 Types of regions:
 * "art" - returns trimmed art from the region specified
