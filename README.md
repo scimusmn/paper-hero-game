@@ -27,6 +27,7 @@ Types of regions:
 index.js
 ```javascript
   var artEater = require('art-eater');
+  
   artEater.setOutputPath('./public/output/');
   artEater.expect('./regions.json');
   artEater.watch('./public/your-scanner-saves-to-here/', onScanDigested);
