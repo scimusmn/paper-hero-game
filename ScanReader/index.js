@@ -14,7 +14,7 @@ var TYPE_ART = 'art';
 var TYPE_STITCH = 'stitch';
 var TYPE_FILL = 'fill';
 
-var outputPath = '.';
+var outputPath = './';
 var digestPath = '';
 var expected = [];
 var results = {};
@@ -103,13 +103,18 @@ exports.loadFormData = function(path) {
 */
 exports.expectArt = function(id, x, y, w, h, trim, transparent) {
 
-  var trim = _trim || false;
-  var transparent = _transparent || false;
+  if (trim === undefined || trim === null) {
+    trim = false;
+  }
+
+  if (transparent === undefined || transparent === null) {
+    transparent = true;
+  }
 
   var region = {    id: id,
                     type: TYPE_ART,
                     rect: {x:x, y:y, w:w, h:h},
-                    options: {trim:trim, tranparent:transparent},
+                    options: {trim:trim, transparent:transparent},
                   };
 
   expected.push(region);
@@ -259,19 +264,9 @@ var processNextRegion = function(imgPath) {
 
   if (e.type === TYPE_ART) {
 
-    var artPath = digestPath + e.id + '.png';
+    var outPath = digestPath + e.id + '.png';
 
-    gm(imgPath)
-      .crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y)
-      .trim() // Remove empty white border
-      .transparent('#ffffff') // Make white pixels transparent
-      .write(artPath, function(err) {
-        if (err) {
-          throw err;
-        } else {
-          processComplete(e.id, artPath, imgPath);
-        }
-      });
+    getArt(imgPath, outPath, e, processComplete);
 
   } else if (e.type === TYPE_FILL) {
 
@@ -338,6 +333,41 @@ var processNextRegion = function(imgPath) {
     };
 
   }
+
+};
+
+var getArt = function(srcPath, outPath, region, callback) {
+
+  var e = region;
+
+  console.log('artImg', e.id, e.options);
+
+  var artImg = gm(srcPath);
+
+  // Crop source image to specified region
+  artImg.crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y);
+
+  // Remove empty white border
+  if (e.options.trim === true) {
+    console.log('trrmtmrt');
+    artImg.trim();
+
+  }
+
+  // Make white pixels transparent
+  if (e.options.transparent === true) {
+    console.log('transpnsp');
+    artImg.transparent('#ffffff');
+
+  }
+
+  artImg.write(outPath, function(err) {
+    if (err) {
+      throw err;
+    } else {
+      callback(e.id, outPath, srcPath);
+    }
+  });
 
 };
 

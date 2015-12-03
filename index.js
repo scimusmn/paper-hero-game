@@ -40,7 +40,7 @@ setInterval(function() {
 
 function processScan(formPath) {
 
-  reader.digest(formPath, digestionComplete, true);
+  reader.digest(formPath, digestionComplete);
 
 }
 
