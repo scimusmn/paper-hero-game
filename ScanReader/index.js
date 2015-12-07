@@ -180,7 +180,7 @@ exports.expectFillBox = function(id, region) {
 
         cellRegion.id = FGRIDKEY + '_' + id + '_' + index;
         cellRegion.x = region.x + (c * colWidth);
-        cellRegion.x = region.y + (r * rowHeight);
+        cellRegion.y = region.y + (r * rowHeight);
         cellRegion.w = colWidth;
         cellRegion.h = rowHeight;
 
@@ -320,6 +320,7 @@ var processNextRegion = function(imgPath) {
 
       gm(imgPath)
         .crop(r.w, r.h, r.x, r.y)
+        .transparent('#ffffff')
         .resize(e.exportScale)
         .write(ltrPath, function(err) {
           if (err) {
@@ -514,7 +515,7 @@ var outputDebug = function(imgPath, completeCallback) {
 
       // Stitch = green
       color = 'rgba(0,180,0,0.5)';
-      for (var s = 0; s < e.length; s++) {
+      for (var s = 0; s < e.rectArray.length; s++) {
 
         var stitchRect = e.rectArray[s];
 
@@ -537,7 +538,7 @@ var outputDebug = function(imgPath, completeCallback) {
     drawArgs += ' fill ' + color + ' rectangle ' + e.x + ',' + e.y + ',' + (e.x + e.w) + ',' + (e.y + e.h);
 
     // Label
-    drawArgs += ' fill white text ' + (e.x + 5) + ',' + (e.y + 15) + ' ' + e.id + '';
+    drawArgs += ' fill white text ' + (e.x + 10) + ',' + (e.y + 15) + ' ' + e.id + '';
 
   }
 

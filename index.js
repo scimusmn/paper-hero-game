@@ -17,15 +17,14 @@ jsonfile.readFile(charactersPath, function(err, obj) {
 
 // Watch directory for new files from scanner.
 // Ignore hidden files. Wait for files to finish saving before reporting.
-/*
+
 var scanDir = __dirname + '/public/scans/';
-var watchOptions = {ignored: /[\/\\]\./, persistent: true, awaitWriteFinish: true};
+var watchOptions = {ignored: /[\/\\]\./, persistent: true, ignoreInitial:true, awaitWriteFinish: true};
 
 chokidar.watch(scanDir, watchOptions).on('add', function(path) {
   console.log('New scan found:', path);
   processScan(path);
 });
-*/
 
 // Set up form for scan reader
 reader.setOutputPath('./public/characters/');
@@ -33,10 +32,10 @@ reader.loadFormData('./public/forms/example.json');
 
 // DEBUG - Every 30 seconds load local scan for testing.
 // processScan(__dirname + '/work/example-scans/Image-001.png');
-setInterval(function() {
-  var rInt = Math.ceil(Math.random() * 4);
-  processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
-}, 25 * 1000);
+// setInterval(function() {
+//   var rInt = Math.ceil(Math.random() * 4);
+//   processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
+// }, 25 * 1000);
 
 function processScan(formPath) {
 
