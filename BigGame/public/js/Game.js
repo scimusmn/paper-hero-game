@@ -117,8 +117,21 @@ function Game() {
 
     console.log('Game.addPlayer: ' + data.nickname);
 
+    var idlePath = 'img/hero_idle.png';
+    var toolPath = 'img/hero_fist.png';
+    var foodPath = '';
+    var namePath = '';
+    if (data.assetPath !== null && data.assetPath !== undefined && data.assetPath !== '') {
+      idlePath = data.assetPath + 'monster.png';
+      toolPath = data.assetPath + 'tool.png';
+      foodPath = data.assetPath + 'food.png';
+      namePath  = data.assetPath + 'name.png';
+    }
+
+    console.log(idlePath);
+
     // Add new flyer div to stage
-    $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><p style="color:' + data.usercolor + ';">' + data.nickname + '</p><img id="fist" src="img/hero_fist.png"/><img id="idle" src="img/hero_idle.png"/><img id="fly" src="img/hero_fly.png"/></div>');
+    $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><p style="color:' + data.usercolor + ';">' + data.nickname + '</p><img id="fist" src="' + toolPath + '"/><img id="idle" src="' + idlePath + '"/></div>');
     var flyerDiv = $('#flyer_' + data.userid);
 
     // Pop in
@@ -137,9 +150,9 @@ function Game() {
     var newFlyer = {    userid: data.userid,
                         socketid: data.socketid,
                         div: flyerDiv,
-                        flyDiv: $(flyerDiv).children('#fly'),
                         idleDiv: $(flyerDiv).children('#idle'),
                         nickname: data.nickname,
+                        namePath: namePath,
                         color: data.usercolor,
                         deadCount: 0,
                         score: 0,
@@ -234,14 +247,19 @@ function Game() {
 
       if (flyer.gas === true) {
 
-        flyer.flyDiv.show();
-        flyer.idleDiv.hide();
+        // flyer.flyDiv.show();
+        // flyer.idleDiv.hide();
+
+        //TODO - angle towards direction flying?
+
         deadCount = 0;
 
       } else {
 
-        flyer.flyDiv.hide();
-        flyer.idleDiv.show();
+        // flyer.flyDiv.hide();
+        // flyer.idleDiv.show();
+
+        //TODO - remove any movement rotation
 
         // Friction
         flyer.vx *= 0.99;
@@ -473,7 +491,13 @@ function Game() {
       // TEMP (shouldn't reach outside game stage)
       $('#player-list').empty();
       for (var i = 0; i < flyers.length; i++) {
-        $('#player-list').append($('<li>').html('<span style="color:' + flyers[i].color + ';">' + flyers[i].nickname + ' </span> &nbsp; ' + flyers[i].score));
+
+        if (flyers[i].namePath !== null && flyers[i].namePath !== '') {
+          $('#player-list').append($('<li>').html('<span><img src="' + flyers[i].namePath + '"/></span> &nbsp; ' + flyers[i].score));
+        } else {
+          $('#player-list').append($('<li>').html('<span style="color:' + flyers[i].color + ';">' + flyers[i].nickname + ' </span> &nbsp; ' + flyers[i].score));
+        }
+
       }
     }
 

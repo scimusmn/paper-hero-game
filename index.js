@@ -32,11 +32,11 @@ reader.setOutputPath('./public/characters/');
 reader.loadFormData('./public/forms/example.json');
 
 // DEBUG - Every 30 seconds load local scan for testing.
-processScan(__dirname + '/work/example-scans/Image-001.png');
+// processScan(__dirname + '/work/example-scans/Image-001.png');
 setInterval(function() {
   var rInt = Math.ceil(Math.random() * 4);
   processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
-}, 30 * 1000);
+}, 25 * 1000);
 
 function processScan(formPath) {
 
@@ -66,9 +66,13 @@ function digestionComplete(results) {
 
   // Manipulate filepaths to work with game server
   results.monster = results.monster.replace('./public/', '/smash/');
-  results.projectile = results.projectile.replace('./public/', '/smash/');
+  results.tool = results.tool.replace('./public/', '/smash/');
   results.food = results.food.replace('./public/', '/smash/');
   results.name = results.name.replace('./public/', '/smash/');
+
+  // Set useful assetPath (home directory for all assets)
+  results.assetPath = results.monster.replace('monster.png', '');
+  console.log(results.assetPath);
 
   addCharacter(results);
 

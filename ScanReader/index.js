@@ -46,41 +46,44 @@ exports.loadFormData = function(path) {
   var _this = this;
 
   jsonfile.readFile(path, function(err, regions) {
-  if (err) {
 
-    console.log('No form data found at: ' + path);
-    throw err;
+    if (err) {
 
-  } else {
+      console.log('No form data found at: ' + path);
+      throw err;
 
-    for (var key in regions) {
+    } else {
 
-      if (regions.hasOwnProperty(key)) {
+      for (var key in regions) {
 
-        var e = regions[key];
+        if (regions.hasOwnProperty(key)) {
 
-        switch (e.type){
+          var e = regions[key];
 
-          case TYPE_ART:
+          switch (e.type){
 
-            _this.expectArt(key, e.x, e.y, e.w, e.h, e.trim, e.transparent);
+            case TYPE_ART:
 
-            break;
-          case TYPE_FILL:
+              _this.expectArt(key, e);
 
-            _this.expectFillBox(key, e.x, e.y, e.w, e.h, e.cols, e.rows);
+              break;
+            case TYPE_FILL:
 
-            break;
-          case TYPE_STITCH:
+              _this.expectFillBox(key, e);
 
-            _this.expectStitch(key, e.rectArray);
+              break;
+            case TYPE_STITCH:
 
-            break;
-          default:
+              _this.expectStitch(key, e);
 
-            console.log('Warning unrecognized object type:', e.type);
+              break;
+            default:
 
-            break;
+              console.log('Warning - Unrecognized type:', e.type);
+
+              break;
+
+          }
 
         }
 
@@ -88,9 +91,7 @@ exports.loadFormData = function(path) {
 
     }
 
-  }
-
-});
+  });
 
 };
 
@@ -101,22 +102,21 @@ exports.loadFormData = function(path) {
 * Trim whitespace and return png.
 *
 */
-exports.expectArt = function(id, x, y, w, h, trim, transparent) {
+exports.expectArt = function(id, region) {
 
-  if (trim === undefined || trim === null) {
-    trim = false;
+  if (region.trim === undefined || region.trim === null) {
+    region.trim = false;
   }
 
-  if (transparent === undefined || transparent === null) {
-    transparent = true;
+  if (region.transparent === undefined || region.transparent === null) {
+    region.transparent = true;
   }
 
-  var region = {    id: id,
-                    type: TYPE_ART,
-                    rect: {x:x, y:y, w:w, h:h},
-                    options: {trim:trim, transparent:transparent},
-                  };
+  if (region.exportScale === undefined || region.exportScale === null) {
+    region.exportScale = '100%';
+  }
 
+  region.id = id;
   expected.push(region);
 
 };
@@ -130,13 +130,13 @@ exports.expectArt = function(id, x, y, w, h, trim, transparent) {
 * single image.
 *
 */
-exports.expectStitch = function(id, rectArray) {
+exports.expectStitch = function(id, region) {
 
-  var region = {    id: id,
-                    type: TYPE_STITCH,
-                    rect: rectArray,
-                  };
+  if (region.exportScale === undefined || region.exportScale === null) {
+    region.exportScale = '100%';
+  }
 
+  region.id = id;
   expected.push(region);
 
 };
@@ -151,44 +151,45 @@ exports.expectStitch = function(id, rectArray) {
 * and you will returned an array of booleans.
 *
 */
-exports.expectFillBox = function(id, x, y, w, h, cols, rows) {
+exports.expectFillBox = function(id, region) {
 
-  if (cols === undefined || cols === null) {
-    cols = 1;
+  if (region.cols === undefined || region.cols === null) {
+    region.cols = 1;
   }
 
-  if (rows === undefined || rows === null) {
-    rows = 1;
+  if (region.rows === undefined || region.rows === null) {
+    region.rows = 1;
   }
 
-  if (cols === 1 && rows === 1) {
+  if (region.cols === 1 && region.rows === 1) {
 
-    var region = {    id: id,
-                      type: TYPE_FILL,
-                      rect: {x:x, y:y, w:w, h:h},
-                    };
-
+    region.id = id;
     expected.push(region);
 
   } else {
 
-    var colWidth = w / cols;
-    var rowHeight = h / rows;
+    var colWidth = region.w / region.cols;
+    var rowHeight = region.h / region.rows;
     var index = 0;
 
-    for (var r = 0; r < rows; r++) {
-      for (var c = 0; c < cols; c++) {
+    for (var r = 0; r < region.rows; r++) {
+      for (var c = 0; c < region.cols; c++) {
 
-        var region = {    id: FGRIDKEY + '_' + id + '_' + index,
-                          type: TYPE_FILL,
-                          rect: {x:x + (c * colWidth), y:y + (r * rowHeight), w:colWidth, h:rowHeight},
-                        };
+        // Trick to clone simple JS object.
+        var cellRegion = (JSON.parse(JSON.stringify(region)));
 
-        expected.push(region);
+        cellRegion.id = FGRIDKEY + '_' + id + '_' + index;
+        cellRegion.x = region.x + (c * colWidth);
+        cellRegion.x = region.y + (r * rowHeight);
+        cellRegion.w = colWidth;
+        cellRegion.h = rowHeight;
+
+        expected.push(cellRegion);
 
         index++;
 
       };
+
     };
 
   }
@@ -273,7 +274,7 @@ var processNextRegion = function(imgPath) {
     // Scale down region to a 1x1 pixel,
     // which auto-averages color data.
     gm(imgPath)
-      .crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y)
+      .crop(e.w, e.h, e.x, e.y)
       .shave(10, 10, 10)
       .scale(1, 1)
       .toBuffer('PNG', function(err, buffer) {
@@ -310,15 +311,16 @@ var processNextRegion = function(imgPath) {
   } else if (e.type === TYPE_STITCH) {
 
     // Create seperate images
-    e.stitchCount = e.rect.length;
-    for (var i = 0; i < e.rect.length; i++) {
+    e.stitchCount = e.rectArray.length;
+    for (var i = 0; i < e.rectArray.length; i++) {
 
       var ltrPath = digestPath + e.id + '_' + i + '.png';
 
-      var r = e.rect[i];
+      var r = e.rectArray[i];
 
       gm(imgPath)
         .crop(r.w, r.h, r.x, r.y)
+        .resize(e.exportScale)
         .write(ltrPath, function(err) {
           if (err) {
             throw err;
@@ -340,26 +342,26 @@ var getArt = function(srcPath, outPath, region, callback) {
 
   var e = region;
 
-  console.log('artImg', e.id, e.options);
-
   var artImg = gm(srcPath);
 
   // Crop source image to specified region
-  artImg.crop(e.rect.w, e.rect.h, e.rect.x, e.rect.y);
+  artImg.crop(e.w, e.h, e.x, e.y);
 
   // Remove empty white border
-  if (e.options.trim === true) {
-    console.log('trrmtmrt');
+  if (e.trim === true) {
+
     artImg.trim();
 
   }
 
   // Make white pixels transparent
-  if (e.options.transparent === true) {
-    console.log('transpnsp');
+  if (e.transparent === true) {
+
     artImg.transparent('#ffffff');
 
   }
+
+  artImg.scale(e.exportScale);
 
   artImg.write(outPath, function(err) {
     if (err) {
@@ -385,10 +387,10 @@ var stitchSectionReady = function(region, imgPath) {
 
 var appendStitchImages = function(region, imgPath) {
 
-  var concatPath = digestPath + region.id + '-stitched.png';
+  var concatPath = digestPath + region.id + '.png';
 
   var ltrs = [];
-  for (var i = 0; i < region.rect.length; i++) {
+  for (var i = 0; i < region.rectArray.length; i++) {
 
     var ltrPath = digestPath + region.id + '_' + i + '.png';
     ltrs.push(ltrPath);
@@ -512,9 +514,9 @@ var outputDebug = function(imgPath, completeCallback) {
 
       // Stitch = green
       color = 'rgba(0,180,0,0.5)';
-      for (var s = 0; s < e.rect.length; s++) {
+      for (var s = 0; s < e.length; s++) {
 
-        var stitchRect = e.rect[s];
+        var stitchRect = e.rectArray[s];
 
         // Stitch Rectangle
         drawArgs += ' fill ' + color + ' rectangle ' + stitchRect.x + ',' + stitchRect.y + ',' + (stitchRect.x + stitchRect.w) + ',' + (stitchRect.y + stitchRect.h);
@@ -532,10 +534,10 @@ var outputDebug = function(imgPath, completeCallback) {
     if (color === '') continue;
 
     // Rectangle
-    drawArgs += ' fill ' + color + ' rectangle ' + e.rect.x + ',' + e.rect.y + ',' + (e.rect.x + e.rect.w) + ',' + (e.rect.y + e.rect.h);
+    drawArgs += ' fill ' + color + ' rectangle ' + e.x + ',' + e.y + ',' + (e.x + e.w) + ',' + (e.y + e.h);
 
     // Label
-    drawArgs += ' fill white text ' + (e.rect.x + 5) + ',' + (e.rect.y + 15) + ' ' + e.id + '';
+    drawArgs += ' fill white text ' + (e.x + 5) + ',' + (e.y + 15) + ' ' + e.id + '';
 
   }
 

@@ -1,13 +1,16 @@
 {
+
   "monster": {
     "type": "art",
+    "exportScale": "20%",
     "x": 173,
     "y": 370,
     "w": 496,
     "h": 658
   },
-  "projectile": {
+  "tool": {
     "type": "art",
+    "exportScale": "35%",
     "x": 830,
     "y": 408,
     "w": 227,
@@ -15,6 +18,7 @@
   },
   "food": {
     "type": "art",
+    "exportScale": "35%",
     "x": 830,
     "y": 798,
     "w": 227,
@@ -67,6 +71,7 @@
   },
   "name": {
     "type": "stitch",
+    "exportScale": "50%",
     "rectArray": [
       {
         "x": 130,
@@ -136,4 +141,5 @@
       }
     ]
   }
+
 }

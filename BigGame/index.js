@@ -83,7 +83,7 @@ io.on('connection', function(socket) {
     usercolor = data.usercolor;
 
     // Check input-code for matches in character manifest
-    data = lookupCharacterManifest(data);
+    assetPath = lookupCharacterManifest(data.nickname);
 
     if (usertype == CLIENT_SHARED_SCREEN) {
 
@@ -141,6 +141,8 @@ io.on('connection', function(socket) {
 
       // Track clients' sockets so we can ensure only one socket per device.
       clients[userid] = socket;
+
+      console.log('Send new player:');
 
       // Alert shared screen of new player
       io.sockets.connected[sharedScreenSID].emit('add-player', {  nickname: nickname,
@@ -241,16 +243,23 @@ io.on('connection', function(socket) {
 
   }
 
-  function lookupCharacterManifest(data) {
+  function lookupCharacterManifest(characterId) {
 
-    if (data.nickname in characterManifest) {
-      var charData = characterManifest[data.nickname];
-      data.assetPath = charData.monster;
+    console.log('lookupCharacterManifest', characterId);
+
+    var assetPath = ''; // Default asset path.
+
+    if (characterId in characterManifest) {
+
+      var data = characterManifest[characterId];
+      assetPath = data.assetPath;
+      console.log('found~',assetPath);
+
     } else {
-      data.assetPath = '/default/';
+      // TODO - display warning message? ("Character not found")
     }
 
-    return data;
+    return assetPath;
   }
 
 });
