@@ -9,12 +9,13 @@ var fs = require('fs');// FileSystem
 var path = require('path');
 var gm = require('gm').subClass({imageMagick: true}); // GraphicMagick/ImageMagick
 var jsonfile = require('jsonfile');
+var chokidar = require('chokidar'); // Directory observer.
 
 var TYPE_ART = 'art';
 var TYPE_STITCH = 'stitch';
 var TYPE_FILL = 'fill';
 
-var outputPath = './';
+var outputPath = './output/';
 var digestPath = '';
 var expected = [];
 var results = {};
@@ -27,7 +28,7 @@ var FGRIDKEY = 'F^G';
 * Set output path where art is saved.
 *
 */
-exports.setOutputPath = function(path) {
+exports.setOutputDirectory = function(path) {
 
   outputPath = path;
 
@@ -35,21 +36,45 @@ exports.setOutputPath = function(path) {
 
 /**
 *
-* Load Form Data
+* Watch directory for new image files (from scanner)
+*
+* Ignores hidden and pre-existing files,
+* and waits for complete files before reporting.
+*
+*/
+exports.watchDirectoryForScans = function(directoryPath, digestionCallback) {
+
+  var watchOptions = {ignored: /[\/\\]\./, persistent: true, ignoreInitial:true, awaitWriteFinish: true};
+  var _this = this;
+
+  chokidar.watch(directoryPath, watchOptions).on('add', function(path) {
+
+    console.log('Scan ready:', path);
+
+    _this.digest(path, digestionCallback);
+
+  });
+
+};
+
+
+/**
+*
+* Load Regions
 *
 * Parse JSON for all expected
 * regions in incoming scans
 *
 */
-exports.loadFormData = function(path) {
+exports.loadRegions = function(jsonPath) {
 
   var _this = this;
 
-  jsonfile.readFile(path, function(err, regions) {
+  jsonfile.readFile(jsonPath, function(err, regions) {
 
     if (err) {
 
-      console.log('No form data found at: ' + path);
+      console.log('No regions json found at: ' + jsonPath);
       throw err;
 
     } else {
@@ -206,6 +231,11 @@ exports.expectFillBox = function(id, region) {
 */
 exports.digest = function(srcPath, completeCallback, skipDebug) {
 
+  // Create output directory if non-existant
+  if (!fs.existsSync(outputPath)) {
+    fs.mkdirSync(outputPath);
+  }
+
   digestPath = outputPath + Date.now() + '/';
 
   // Make fresh directory using timestamp
@@ -263,6 +293,11 @@ var processRegions = function(imgPath, completeCallback) {
 
 };
 
+/**
+*
+* Process next region
+*
+*/
 var processNextRegion = function(imgPath) {
 
   var e = expected[expected.length - numProcesses];
@@ -275,8 +310,8 @@ var processNextRegion = function(imgPath) {
 
   } else if (e.type === TYPE_FILL) {
 
-    // Scale down region to a 1x1 pixel,
-    // which auto-averages color data.
+    // Scale down to a 1x1 pixel,
+    // averaging all color data.
     gm(imgPath)
       .crop(e.w, e.h, e.x, e.y)
       .shave(10, 10, 10)
@@ -345,6 +380,11 @@ var processNextRegion = function(imgPath) {
 
 };
 
+/**
+*
+* Get art from region
+*
+*/
 var getArt = function(srcPath, outPath, region, callback) {
 
   var e = region;
@@ -374,7 +414,6 @@ var getArt = function(srcPath, outPath, region, callback) {
   // NOTE - We're using 'adaptive-resize' because
   // I don't like the muddiness that results
   // from using default resize.
-
   // artImg.resize(e.exportScale);
 
   artImg.write(outPath, function(err) {
@@ -387,6 +426,11 @@ var getArt = function(srcPath, outPath, region, callback) {
 
 };
 
+/**
+*
+* Stitch section ready
+*
+*/
 var stitchSectionReady = function(region, imgPath) {
 
   region.stitchCount--;
@@ -399,6 +443,11 @@ var stitchSectionReady = function(region, imgPath) {
 
 };
 
+/**
+*
+* Append stitch images
+*
+*/
 var appendStitchImages = function(region, imgPath) {
 
   var concatPath = digestPath + region.id + '.png';
@@ -463,6 +512,14 @@ var processComplete = function(id, result, srcPath) {
 
 };
 
+/**
+*
+* Clean Results
+*
+* Post-processing of results
+* before sending off.
+*
+*/
 var cleanResults = function(dirtyResults) {
 
   var cleanResults = {};

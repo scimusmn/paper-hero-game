@@ -1,53 +1,44 @@
-var reader = require('./ScanReader/index.js');
+var artEater = require('./ScanReader/index.js');
 var game = require('./BigGame/index.js');
-var chokidar = require('chokidar');
 var jsonfile = require('jsonfile');
 var path = require('path');
 
+// Get existing character manifest
 var charactersJSON = {};
 var charactersPath = './Characters.json';
 jsonfile.spaces = 2;
+
 jsonfile.readFile(charactersPath, function(err, obj) {
+
   if (err) {
+
     console.log('No Characters manifest found. Start anew.');
+
   } else {
+
     charactersJSON = obj;
     game.updateCharacterManifest(charactersJSON);
+
   }
+
 });
 
-// Watch directory for new files from scanner.
-// Ignore hidden files. Wait for files to finish saving before reporting.
+// Set up Art Reader
+var regionsJSON = './public/forms/example.json';
+var outputDirectory = './public/characters/';
+var scanDirectory = __dirname + '/public/scans/';
 
-var scanDir = __dirname + '/public/scans/';
-var watchOptions = {ignored: /[\/\\]\./, persistent: true, ignoreInitial:true, awaitWriteFinish: true};
+artEater.loadRegions(regionsJSON);
+artEater.setOutputDirectory(outputDirectory);
+artEater.watchDirectoryForScans(scanDirectory, digestionComplete);
 
-chokidar.watch(scanDir, watchOptions).on('add', function(path) {
-  console.log('New scan found:', path);
-  processScan(path);
-});
-
-// Set up form for scan reader
-reader.setOutputPath('./public/characters/');
-reader.loadFormData('./public/forms/example.json');
-
-// DEBUG - Every 30 seconds load local scan for testing.
-processScan(__dirname + '/work/example-scans/Image-005.png');
-setInterval(function() {
-  var rInt = Math.ceil(Math.random() * 7);
-  processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
-}, 15 * 1000);
-
-function processScan(formPath) {
-
-  reader.digest(formPath, digestionComplete);
-
-}
-
+// Do post-processing after art-reader returns results.
 function digestionComplete(results) {
 
-  // Simplify fill-box results by using only
-  // first true value, and collapsing into single array.
+  console.log('\nDigestion complete ... <{ BURP! }');
+
+  // Simplify fill-box results.
+  // Accept only first true value for each.
   results.steps = [results.step1.indexOf(true),
                     results.step2.indexOf(true),
                     results.step3.indexOf(true),
@@ -55,14 +46,12 @@ function digestionComplete(results) {
                     results.step5.indexOf(true),
                     ];
 
-  // Remove the now uneccessary keys
+  // Remove superflous keys
   delete results.step1;
   delete results.step2;
   delete results.step3;
   delete results.step4;
   delete results.step5;
-
-  console.log('\nDigestion complete ... <{ BURP! }');
 
   // Manipulate filepaths to work with game server
   results.monster = results.monster.replace('./public/', '/smash/');
@@ -70,7 +59,7 @@ function digestionComplete(results) {
   results.food = results.food.replace('./public/', '/smash/');
   results.name = results.name.replace('./public/', '/smash/');
 
-  // Home directory for all assets
+  // Add home directory for all assets
   results.assetPath = results.monster.replace('monster.png', '');
 
   addCharacter(results);
@@ -120,3 +109,13 @@ function generateCharacterId() {
 
 }
 
+/* TEMP */
+
+// DEBUG - Every 30 seconds load local scan for testing.
+// artEater.digest(__dirname + '/work/example-scans/Image-005.png', digestionComplete);
+// setInterval(function() {
+
+//   var rInt = Math.ceil(Math.random() * 7);
+//   artEater.digest(__dirname + '/work/example-scans/Image-00' + rInt + '.png', digestionComplete);
+
+// }, 15 * 1000);

@@ -216,6 +216,9 @@ io.on('connection', function(socket) {
   // Forward events to specific controllers
   socket.on('controller-event', function(data) {
 
+    //TODO- this line errors sometimes. Should check that
+    // is not undefined:
+    // TypeError: Cannot call method 'emit' of undefined
     io.sockets.connected[data.socketid].emit('controller-event', data);
 
   });

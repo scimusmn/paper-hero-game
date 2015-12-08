@@ -8,6 +8,14 @@
     "w": 486,
     "h": 648
   },
+  "monster-big": {
+    "type": "art",
+    "exportScale": "100%",
+    "x": 178,
+    "y": 371,
+    "w": 486,
+    "h": 648
+  },
   "tool": {
     "type": "art",
     "exportScale": "35%",
