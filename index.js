@@ -12,6 +12,7 @@ jsonfile.readFile(charactersPath, function(err, obj) {
     console.log('No Characters manifest found. Start anew.');
   } else {
     charactersJSON = obj;
+    game.updateCharacterManifest(charactersJSON);
   }
 });
 

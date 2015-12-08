@@ -60,7 +60,7 @@
 
       function promptReturnUser(data) {
 
-        var nickname = prompt("Welcome back!\nEnter nickname.", ''); // (User:"+data.userid+")\nEnter nickname.
+        var nickname = prompt("Welcome back!\nEnter your MONSTER CODE to join.", ''); // (User:"+data.userid+")\nEnter nickname.
 
         data.nickname = sanitize(nickname);
         data.firstTime = false;
@@ -70,7 +70,7 @@
 
       function promptFirstTimer() {
 
-        var nickname = prompt("Welcome! Touch and drag to move your character. Tap screen to smash asteroids. Enter nickname.", '');
+        var nickname = prompt("Welcome! Touch and drag to move. Tap to smash asteroids. Enter your MONSTER CODE to join.", '');
         nickame = sanitize(nickname);
         var data = {'nickname': nickname};
         data.firstTime = true;
@@ -80,8 +80,8 @@
 
       function sanitize(nameStr) {
 
-        //Max length : 13 chars
-        var name = nameStr.substring(0, 15);
+        //Max length : 13 chars. Capitilize
+        var name = nameStr.substring(0, 15).toUpperCase();
 
         //Strip out HTML
         var strippedName = $('<p>' + name + '</p>').text();

@@ -256,6 +256,7 @@ io.on('connection', function(socket) {
       console.log('found~',assetPath);
 
     } else {
+      console.log('NOT found~',assetPath);
       // TODO - display warning message? ("Character not found")
     }
 

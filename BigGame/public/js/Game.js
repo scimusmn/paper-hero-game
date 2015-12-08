@@ -131,7 +131,7 @@ function Game() {
     console.log(idlePath);
 
     // Add new flyer div to stage
-    $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><img id="fist" src="' + toolPath + '"/><img id="idle" src="' + idlePath + '"/></div>');
+    $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><img id="fist" src="' + toolPath + '"/><img width=50 id="idle" src="' + idlePath + '"/></div>');
     var flyerDiv = $('#flyer_' + data.userid);
 
     // Pop in
