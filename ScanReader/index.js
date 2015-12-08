@@ -204,7 +204,7 @@ exports.expectFillBox = function(id, region) {
 * expected regions.
 *
 */
-exports.digest = function(imgPath, completeCallback, skipDebug) {
+exports.digest = function(srcPath, completeCallback, skipDebug) {
 
   digestPath = outputPath + Date.now() + '/';
 
@@ -217,16 +217,23 @@ exports.digest = function(imgPath, completeCallback, skipDebug) {
   var prepPath = digestPath + 'scan-prepared.png';
 
   // Prep scan image as a whole.
-  gm(imgPath)
+  gm(srcPath)
     .whiteThreshold('95%') // Make near-whites white
     .blackThreshold('5%') // Make near-blacks black
     .trim() // Remove black scan border
+    .out('+repage') // Recalculate virtual canvas math
     .write(prepPath, function(err) {
+
       if (err) {
+
         throw err;
+
       } else {
 
         console.log('Scan prepared:', prepPath);
+
+        // Process the goods
+        processRegions(prepPath, completeCallback);
 
         // Export debug image
         if (!skipDebug || skipDebug === false) {
@@ -234,9 +241,6 @@ exports.digest = function(imgPath, completeCallback, skipDebug) {
             console.log('Debug prepared: ' + debugPath);
           });
         }
-
-        // Process the goods
-        processRegions(prepPath, completeCallback);
 
       }
     });
@@ -320,8 +324,10 @@ var processNextRegion = function(imgPath) {
 
       gm(imgPath)
         .crop(r.w, r.h, r.x, r.y)
+        .whiteThreshold('90%') // Make near-whites white
         .transparent('#ffffff')
-        .resize(e.exportScale)
+        .out('-adaptive-resize')
+        .out(e.exportScale)
         .write(ltrPath, function(err) {
           if (err) {
             throw err;
@@ -362,7 +368,14 @@ var getArt = function(srcPath, outPath, region, callback) {
 
   }
 
-  artImg.scale(e.exportScale);
+  artImg.out('-adaptive-resize');
+  artImg.out(e.exportScale);
+
+  // NOTE - We're using 'adaptive-resize' because
+  // I don't like the muddiness that results
+  // from using default resize.
+
+  // artImg.resize(e.exportScale);
 
   artImg.write(outPath, function(err) {
     if (err) {
@@ -409,8 +422,15 @@ var appendStitchImages = function(region, imgPath) {
 
         }else {
 
-          processComplete(region.id, concatPath, imgPath);
+          // Do final trim to cut off empty stitch slots.
+          // TODO - this could be an optional 'trim' param passed in.
+          gm(concatPath)
+            .trim()
+              .write(concatPath, function(err) {
 
+                processComplete(region.id, concatPath, imgPath);
+
+              });
         }
       });
 
@@ -488,10 +508,10 @@ var cleanResults = function(dirtyResults) {
 * Export highlighted debug image.
 *
 */
-var outputDebug = function(imgPath, completeCallback) {
+var outputDebug = function(srcPath, completeCallback) {
 
-  // Create filepath for debug image.
-  var debugPath = digestPath + path.basename(imgPath, path.extname(imgPath)) + '-debug.png';
+  // Filepath for generated debug image.
+  var debugPath = digestPath + path.basename(srcPath, path.extname(srcPath)) + '-debug.png';
 
   // Loop through expected regions to create
   // draw command for imagemagick.
@@ -538,12 +558,12 @@ var outputDebug = function(imgPath, completeCallback) {
     drawArgs += ' fill ' + color + ' rectangle ' + e.x + ',' + e.y + ',' + (e.x + e.w) + ',' + (e.y + e.h);
 
     // Label
-    drawArgs += ' fill white text ' + (e.x + 10) + ',' + (e.y + 15) + ' ' + e.id + '';
+    drawArgs += ' fill black text ' + e.x + ',' + e.y + ' ' + e.id + '';
 
   }
 
   // Do drawing then save.
-  gm(imgPath)
+  gm(srcPath)
     .draw(drawArgs)
     .write(debugPath, function(err) {
       if (err) {

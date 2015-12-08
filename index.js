@@ -32,11 +32,11 @@ reader.setOutputPath('./public/characters/');
 reader.loadFormData('./public/forms/example.json');
 
 // DEBUG - Every 30 seconds load local scan for testing.
-// processScan(__dirname + '/work/example-scans/Image-001.png');
-// setInterval(function() {
-//   var rInt = Math.ceil(Math.random() * 4);
-//   processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
-// }, 25 * 1000);
+processScan(__dirname + '/work/example-scans/Image-005.png');
+setInterval(function() {
+  var rInt = Math.ceil(Math.random() * 7);
+  processScan(__dirname + '/work/example-scans/Image-00' + rInt + '.png');
+}, 15 * 1000);
 
 function processScan(formPath) {
 
@@ -70,9 +70,8 @@ function digestionComplete(results) {
   results.food = results.food.replace('./public/', '/smash/');
   results.name = results.name.replace('./public/', '/smash/');
 
-  // Set useful assetPath (home directory for all assets)
+  // Home directory for all assets
   results.assetPath = results.monster.replace('monster.png', '');
-  console.log(results.assetPath);
 
   addCharacter(results);
 
@@ -81,13 +80,10 @@ function digestionComplete(results) {
 function addCharacter(characterData) {
 
   // Create unique ID for new character.
-
   var uniqueId = generateCharacterId();
   while ((uniqueId in charactersJSON)) {
     uniqueId = generateCharacterId();
   }
-
-  // TODO - Rename asset folder to match unique id.
 
   // Add metadata...
   characterData.datecreated = Date.now() + '';
