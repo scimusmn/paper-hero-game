@@ -2,7 +2,7 @@
 
   "monster": {
     "type": "art",
-    "exportScale": "20%",
+    "exportScale": "25%",
     "x": 178,
     "y": 371,
     "w": 486,
@@ -18,7 +18,7 @@
   },
   "tool": {
     "type": "art",
-    "exportScale": "30%",
+    "exportScale": "25%",
     "x": 835,
     "y": 414,
     "w": 217,
@@ -26,7 +26,7 @@
   },
   "food": {
     "type": "art",
-    "exportScale": "30%",
+    "exportScale": "25%",
     "x": 835,
     "y": 799,
     "w": 217,

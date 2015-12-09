@@ -122,8 +122,10 @@ function Game() {
     var toolPath = 'img/hero_fist.png';
     var foodPath = '';
     var namePath = '';
+    var bigPath = '';
     if (data.assetPath !== null && data.assetPath !== undefined && data.assetPath !== '') {
       idlePath = data.assetPath + 'monster.png';
+      bigPath = data.assetPath + 'monsterBig.png';
       toolPath = data.assetPath + 'tool.png';
       foodPath = data.assetPath + 'food.png';
       namePath  = data.assetPath + 'name.png';
@@ -153,6 +155,7 @@ function Game() {
                         nickname: data.nickname,
                         namePath: namePath,
                         foodPath: foodPath,
+                        bigPath: bigPath,
                         color: data.usercolor,
                         deadCount: 0,
                         score: 0,
@@ -252,7 +255,7 @@ function Game() {
 
         //TODO - angle towards direction flying?
 
-        deadCount = 0;
+        flyer.deadCount = 0;
 
       } else {
 
@@ -270,7 +273,7 @@ function Game() {
 
           // Assume user has lost connection. Remove from game.
           if (diconnectCallback) {
-            console.log('disconnect userid:' + flyer.userid);
+            console.log(flyer.deadCount, 'TOO LONG DEAD. disconnect userid:' + flyer.userid);
             diconnectCallback.call(undefined, flyer.userid);
           }
 
@@ -444,12 +447,12 @@ function Game() {
 
       if (dist(hungryFlyer.x, hungryFlyer.y, fd.x, fd.y) < eatRadius) {
 
-        var pColor = '#777777';
+        var pColor = '#232323';
         if (fd.owner === hungryFlyer.nickname) {
           points = 150;
         } else {
-          points = -25;
-          pColor = '#DD3333';
+          points = 25;
+          pColor = '#232323';
         }
 
         releasePoints(points, pColor, fd.x, fd.y, 0);
@@ -503,6 +506,8 @@ function Game() {
     // Clear gameplay
     // Show new-round screen
     $('#new-round').show();
+    $('#new-round #featured-character').attr('src', flyers[0].bigPath);
+    TweenLite.from($('#new-round #featured-character'), 2, { css: { top:-1000 }, ease:Bounce.easeOut });
     $('#join-msg').hide();
     roundCountdown = -LOBBY_DURATION;
     clearGameObjects();
@@ -586,7 +591,8 @@ function Game() {
   function releasePoints(val, col, x, y, dir) {
 
     // Add to stage
-    var pDiv = $('<p class="points" style="color:' + col + ';">+' + val + '</p>');
+    if (val >= 0) val = '+' + val;
+    var pDiv = $('<p class="points" style="color:' + col + ';">' + val + '</p>');
 
     $(stageDiv).append(pDiv);
 
