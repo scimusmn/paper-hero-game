@@ -216,10 +216,17 @@ io.on('connection', function(socket) {
   // Forward events to specific controllers
   socket.on('controller-event', function(data) {
 
-    //TODO- this line errors sometimes. Should check that
-    // is not undefined:
+    // TODO - This line errors sometimes so it's wrapped
+    // in a conditional. Should deal with why it errors, and
+    // it is likely happening when the game is trying to send
+    // a 'game over' or some similar event back to user's controllers
+    // but they have disconnected for some reason....
     // TypeError: Cannot call method 'emit' of undefined
-    io.sockets.connected[data.socketid].emit('controller-event', data);
+    if (io.sockets.connected[data.socketid] && io.sockets.connected[data.socketid] !== undefined) {
+      io.sockets.connected[data.socketid].emit('controller-event', data);
+    } else {
+      console.log('Warning - Controller event - Attempting to call emit on undefined socket.', data.socketid);
+    }
 
   });
 
@@ -256,10 +263,11 @@ io.on('connection', function(socket) {
 
       var data = characterManifest[characterId];
       assetPath = data.assetPath;
-      console.log('found~',assetPath);
+      console.log('found~', assetPath);
 
     } else {
-      console.log('NOT found~',assetPath);
+      console.log('NOT found~', assetPath);
+
       // TODO - display warning message? ("Character not found")
     }
 

@@ -30,7 +30,7 @@ body {
     right: 50px;
     bottom: 0px;
     font-size: 10em;
-    color: #ddd;
+    color: #333;
 }
 
 #join-msg{
@@ -39,7 +39,7 @@ body {
     left: 270px;
     bottom: 90px;
     font-size: 2.5em;
-    color: #ddd;
+    color: #444;
 }
 
 #new-round {
@@ -57,7 +57,7 @@ body {
     right: 350px;
     top: 610px;
     font-size: 8em;
-    color: #ddd;
+    color: #444;
 }
 
 #new-round #player-list {
@@ -66,4 +66,5 @@ body {
     left: 300px;
     top: 615px;
     font-size: 25px;
+    color: #444;
 }

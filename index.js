@@ -55,6 +55,7 @@ function digestionComplete(results) {
 
   // Manipulate filepaths to work with game server
   results.monster = results.monster.replace('./public/', '/smash/');
+  results.monsterBig = results.monsterBig.replace('./public/', '/smash/');
   results.tool = results.tool.replace('./public/', '/smash/');
   results.food = results.food.replace('./public/', '/smash/');
   results.name = results.name.replace('./public/', '/smash/');

@@ -45,6 +45,11 @@
     position: absolute;
     z-index: 2;
 }
+.food,
+.food img{
+    position: absolute;
+    z-index: 2;
+}
 #fist{
     position: absolute;
     z-index: 2;

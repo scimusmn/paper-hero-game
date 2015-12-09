@@ -6,7 +6,7 @@ function Game() {
   var currentFrameRequest = 0;
   var flyers = [];
   var asteroids = [];
-  var droppers = [];
+  var food = [];
   var stageDiv = {};
   var stageBounds = {};
   var roundCountdown = -LOBBY_DURATION;
@@ -43,16 +43,17 @@ function Game() {
     // Start game loop
     currentFrameRequest = window.requestAnimationFrame(gameLoop);
 
-    // Begin releasing asteroids
+    // Begin releasing asteroids & food
     setInterval(function() {
 
       if (flyers.length > 0 && roundCountdown > 0) {
-        releaseAsteroid();
+        // releaseAsteroid();
+        releaseFood();
 
         // Extra asteroids for more players
         for (var i = 0; i < Math.floor(flyers.length / 3); i++) {
 
-          releaseAsteroid();
+          // releaseAsteroid();
 
         }
 
@@ -128,8 +129,6 @@ function Game() {
       namePath  = data.assetPath + 'name.png';
     }
 
-    console.log(idlePath);
-
     // Add new flyer div to stage
     $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><img id="fist" src="' + toolPath + '"/><img width=50 id="idle" src="' + idlePath + '"/></div>');
     var flyerDiv = $('#flyer_' + data.userid);
@@ -153,6 +152,7 @@ function Game() {
                         idleDiv: $(flyerDiv).children('#idle'),
                         nickname: data.nickname,
                         namePath: namePath,
+                        foodPath: foodPath,
                         color: data.usercolor,
                         deadCount: 0,
                         score: 0,
@@ -321,6 +321,20 @@ function Game() {
       TweenLite.set($(flyer.div), { css: { left:flyer.x, top:flyer.y } });
       TweenLite.set($(flyer.div).children('img'), { css: { scaleX:flyer.dir } });
 
+      // Eat nearby food
+      var foodPnts = eatFood(flyer);
+      if (foodPnts > 0) {
+
+        flyer.score += foodPnts;
+
+        // Emit points event to scorer
+        if (pointsCallback) {
+          // TODO - should be separate food calllback
+          pointsCallback.call(undefined, flyer.socketid);
+        }
+
+      }
+
     });
 
     // Wait for next frame
@@ -418,6 +432,44 @@ function Game() {
 
   }
 
+  function eatFood(hungryFlyer) {
+
+    var eatRadius = 60;
+    var points = 0;
+    var fd;
+
+    for (i = food.length - 1; i >= 0; i--) {
+
+      var fd = food[i];
+
+      if (dist(hungryFlyer.x, hungryFlyer.y, fd.x, fd.y) < eatRadius) {
+
+        var pColor = '#777777';
+        if (fd.owner === hungryFlyer.nickname) {
+          points = 150;
+        } else {
+          points = -25;
+          pColor = '#DD3333';
+        }
+
+        releasePoints(points, pColor, fd.x, fd.y, 0);
+
+        // Remove from stage
+        TweenLite.to($(fd.div), 0.2, { css: { opacity:0 }, onComplete: removeElement, onCompleteParams:[fd.div] });
+
+        // Remove from game loop
+        food.splice(i, 1);
+
+        break;
+
+      }
+
+    }
+
+    return points;
+
+  }
+
   function liftStun(flyer) {
     flyer.stunned = false;
     TweenLite.set($(flyer.div), { css: { opacity:1 } });
@@ -453,7 +505,7 @@ function Game() {
     $('#new-round').show();
     $('#join-msg').hide();
     roundCountdown = -LOBBY_DURATION;
-    clearAsteroids();
+    clearGameObjects();
     updateScoreboard();
     $('#game-countdown').text(' ');
 
@@ -598,6 +650,35 @@ function Game() {
 
   }
 
+  function releaseFood() {
+
+    // One piece of food for each player
+    for (var i = 0; i < flyers.length; i++) {
+
+      var owner = flyers[i].nickname;
+
+      // Add new round of food collectables
+      var diam = 75; // Should always match img size
+
+      var foodDiv = $('<div class="food" style=""><img src="' + flyers[i].foodPath + '"/></div>');
+
+      $(stageDiv).append(foodDiv);
+
+      // Release point
+      var startX = Math.random() * (stageBounds.right - 60) + 30;
+      var startY = Math.random() * (stageBounds.floor - 60) + 30;
+      TweenLite.set($(foodDiv), { css: {left:startX, top:startY } });
+
+      // Pop in
+      TweenLite.from($(foodDiv), 1.5, { css: { scale:0, opacity:0 }, ease:Elastic.easeOut });
+
+      var foodObj = {div:foodDiv, x:startX, y:startY, diam:diam, owner:owner };
+      food.push(foodObj);
+
+    }
+
+  }
+
   function explodeAsteroid(x, y, diam, dir) {
 
     // Replace with chunks of asteroid dispersing
@@ -623,7 +704,7 @@ function Game() {
 
   }
 
-  function clearAsteroids() {
+  function clearGameObjects() {
 
     for (a = asteroids.length - 1; a >= 0; a--) {
       var ast = asteroids[a];
@@ -633,6 +714,16 @@ function Game() {
 
       // Remove from game loop
       asteroids.splice(a, 1);
+    }
+
+    for (i = food.length - 1; i >= 0; i--) {
+      var fd = food[i];
+
+      // Fade out
+      TweenLite.to($(fd.div), 0.5, { css: { opacity:0 }, delay:Math.random() * 0.5, onComplete: removeElement, onCompleteParams:[fd.div] });
+
+      // Remove from game loop
+      food.splice(i, 1);
     }
 
   }
