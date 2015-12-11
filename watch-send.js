@@ -1,8 +1,7 @@
 var chokidar = require('chokidar'); // Directory observer.
-var client = require('scp2');
+var scp = require('scp');
 
 var WATCH_DIRECTORY = './public/scans/';
-var TARGET_DIRECTORY = 'root@play.smm.org:/home/mine/paper-game/public/scans/'; // Example: 'admin:password@example.com:/home/admin/'
 
 /**
 *
@@ -17,31 +16,24 @@ chokidar.watch(WATCH_DIRECTORY, watchOptions).on('add', function(filePath) {
 
   console.log('New file ready:', filePath);
 
-  copyFileToServer(filePath);
+  // Copy file up to server
+  scp.send({
+
+    file: filePath,
+    user: 'root',
+    host: 'play.smm.org',
+    path: '/home/mine/paper-game/public/scans/',
+
+  }, function(err) {
+
+    if (err) {
+      console.log(err);
+    } else {
+      console.log('File successfully copied!');
+    }
+  });
 
 });
 
 console.log('Watching directory:', WATCH_DIRECTORY);
 
-/**
-*
-* Copy file to server
-*
-*/
-
-function copyFileToServer(filePath) {
-
-  console.log('Attempting copy file to server...');
-
-  client.scp(filePath, TARGET_DIRECTORY, function(err) {
-
-    if (err) {
-      console.log('SCP Error:');
-      console.log(err);
-    } else {
-      console.log('Successfully copied ' + filePath + ' to ' + TARGET_DIRECTORY);
-    }
-
-  });
-
-}

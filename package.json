@@ -11,6 +11,7 @@
   "dependencies": {
     "chokidar": "^1.4.1",
     "jsonfile": "^2.2.3",
+    "scp": "0.0.3",
     "scp2": "^0.2.2"
   }
 }
