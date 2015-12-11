@@ -1,13 +1,3 @@
-/**
-*
-* watch-send.js
-*
-* Watch a directory. When there is
-* a new (complete) file, securely
-* copy it to a server location.
-*
-*/
-
 var chokidar = require('chokidar'); // Directory observer.
 var client = require('scp2');
 
