@@ -78,17 +78,18 @@ io.on('connection', function(socket) {
 
     console.log('User has registered:', data.usertype, data.nickname, data.userid);
 
-    data.nickname = (data.nickname).toUpperCase();
     socketid = socket.id;
     usertype = data.usertype;
     nickname = purify(data.nickname);
     usercolor = data.usercolor;
 
     // Check input-code for matches in character manifest
-    var charData = lookupCharacterManifest(data.nickname);
-    if (charData) {
-      assetPath = charData.assetPath;
-      vars = charData.vars;
+    if (data.nickname && data.nickname != undefined) {
+      var charData = lookupCharacterManifest(data.nickname.toUpperCase());
+      if (charData) {
+        assetPath = charData.assetPath;
+        vars = charData.vars;
+      }
     }
 
     if (usertype == CLIENT_SHARED_SCREEN) {
@@ -310,7 +311,6 @@ exports.addPlayableCharacter = function(characterId, characterData) {
   io.sockets.connected[presenterScreenSID].emit('present-character', {  characterId: characterId,
                                                                         characterData: characterData,
                                                                       });
-
 
 };
 
