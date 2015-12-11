@@ -27,7 +27,7 @@ chokidar.watch(WATCH_DIRECTORY, watchOptions).on('add', function(filePath) {
 
   console.log('New file ready:', filePath);
 
-  // TODO - Send to server
+  copyFileToServer(filePath);
 
 });
 
