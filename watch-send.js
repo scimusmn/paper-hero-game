@@ -11,7 +11,7 @@
 var chokidar = require('chokidar'); // Directory observer.
 var client = require('scp2');
 
-var WATCH_DIRECTORY = '';
+var WATCH_DIRECTORY = '~/Desktop/paper-art-eater/public/scans/';
 var TARGET_DIRECTORY = ''; // Example: 'admin:password@example.com:/home/admin/'
 
 /**
