@@ -1,7 +1,8 @@
 {
-  "name": "socket-multi-user",
+  "name": "BigGame",
   "version": "0.0.1",
   "description": "socketio based multi user interactives",
+  "main": "index.js",
   "dependencies": {
     "express": "^4.9.8",
     "keen-js": "^3.2.4",
