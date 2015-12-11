@@ -264,12 +264,12 @@ io.on('connection', function(socket) {
 
     if (characterId in characterManifest) {
 
-      console.log('Found character code in manifest:', characterId);
+      console.log('-> Found character code in manifest:', characterId);
       return characterManifest[characterId];
 
     } else {
 
-      console.log('DID NOT find character code in manifest:', characterId);
+      console.log('-> DID NOT find character code in manifest:', characterId);
 
       // TODO - display warning message? ("Character not found")
 
