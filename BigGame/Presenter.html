@@ -34,18 +34,9 @@
         console.log('presentNewCharacter', characterId);
         console.log(characterData);
 
-          $("#character-code").html(characterId);
-          $("#character-preview").attr('src', characterData.characterBig);
-          $("#character-name").attr('src', characterData.name);
-
-          $("#new-character").stop().fadeTo("fast",1);
-
-          // Fade out after delay
-          setTimeout(function(){
-
-            $("#new-character").stop().fadeTo("slow",0);
-
-          }, Math.ceil(25*1000));
+        $("#character-code").html(characterId);
+        $("#character-preview").attr('src', characterData.characterBig);
+        $("#character-name").attr('src', characterData.name);
 
       }
 
