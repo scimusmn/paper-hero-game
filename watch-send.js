@@ -12,7 +12,7 @@ var chokidar = require('chokidar'); // Directory observer.
 var client = require('scp2');
 
 var WATCH_DIRECTORY = './public/scans/';
-var TARGET_DIRECTORY = ''; // Example: 'admin:password@example.com:/home/admin/'
+var TARGET_DIRECTORY = 'admin:password@example.com:/home/admin/'; // Example: 'admin:password@example.com:/home/admin/'
 
 /**
 *
@@ -43,7 +43,7 @@ function copyFileToServer(filePath) {
 
   console.log('Attempting copy file to server...');
 
-  client.scp(filePath, 'admin:password@example.com:/home/admin/', function(err) {
+  client.scp(filePath, TARGET_DIRECTORY, function(err) {
 
     if (err) {
       console.log('SCP Error:');
