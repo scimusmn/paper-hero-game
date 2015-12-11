@@ -78,6 +78,7 @@ io.on('connection', function(socket) {
 
     console.log('User has registered:', data.usertype, data.nickname, data.userid);
 
+    data.nickname = (data.nickname).toUpperCase();
     socketid = socket.id;
     usertype = data.usertype;
     nickname = purify(data.nickname);
