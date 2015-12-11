@@ -2,7 +2,7 @@ var chokidar = require('chokidar'); // Directory observer.
 var client = require('scp2');
 
 var WATCH_DIRECTORY = './public/scans/';
-var TARGET_DIRECTORY = 'root@play.smm.org:/home/mine/paper-game/scans/'; // Example: 'admin:password@example.com:/home/admin/'
+var TARGET_DIRECTORY = 'root@play.smm.org:/home/mine/paper-game/public/scans/'; // Example: 'admin:password@example.com:/home/admin/'
 
 /**
 *
