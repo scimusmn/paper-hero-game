@@ -18,7 +18,7 @@ var TARGET_DIRECTORY = ''; // Example: 'admin:password@example.com:/home/admin/'
 *
 * Watch directory for new files.
 * Ignores hidden and pre-existing files,
-* and waits for complete files before reporting.
+* Wait for complete file before reporting.
 *
 */
 var watchOptions = {ignored: /[\/\\]\./, persistent: true, ignoreInitial:true, awaitWriteFinish: true};
@@ -41,7 +41,7 @@ console.log('Watching directory:', WATCH_DIRECTORY);
 
 function copyFileToServer(filePath) {
 
-  console.log('Attempting copy file to server');
+  console.log('Attempting copy file to server...');
 
   client.scp(filePath, 'admin:password@example.com:/home/admin/', function(err) {
 
