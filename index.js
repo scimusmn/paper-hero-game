@@ -24,7 +24,7 @@ jsonfile.readFile(charactersPath, function(err, obj) {
 });
 
 // Set up Art Reader
-var regionsJSON = './public/forms/example.json';
+var regionsJSON = './public/forms/character-sheet.json';
 var outputDirectory = './public/characters/';
 var scanDirectory = __dirname + '/public/scans/';
 
@@ -38,30 +38,26 @@ function digestionComplete(results) {
   console.log('\nDigestion complete ... <{ BURP! }');
 
   // Simplify fill-box results.
-  // Accept only first true value for each.
-  results.steps = [results.step1.indexOf(true),
-                    results.step2.indexOf(true),
-                    results.step3.indexOf(true),
-                    results.step4.indexOf(true),
-                    results.step5.indexOf(true),
+  results.vars = [results.speed.indexOf(true),
+                    results.size.indexOf(true),
+                    results.accuracy.indexOf(true),
+                    results.strength.indexOf(true),
                     ];
 
-  // Remove superflous keys
-  delete results.step1;
-  delete results.step2;
-  delete results.step3;
-  delete results.step4;
-  delete results.step5;
+  delete results.speed;
+  delete results.size;
+  delete results.accuracy;
+  delete results.strength;
 
   // Manipulate filepaths to work with game server
-  results.monster = results.monster.replace('./public/', '/smash/');
-  results.monsterBig = results.monsterBig.replace('./public/', '/smash/');
+  results.character = results.character.replace('./public/', '/smash/');
+  results.characterBig = results.characterBig.replace('./public/', '/smash/');
   results.tool = results.tool.replace('./public/', '/smash/');
   results.food = results.food.replace('./public/', '/smash/');
   results.name = results.name.replace('./public/', '/smash/');
 
   // Add home directory for all assets
-  results.assetPath = results.monster.replace('monster.png', '');
+  results.assetPath = results.character.replace('character.png', '');
 
   addCharacter(results);
 
@@ -113,7 +109,7 @@ function generateCharacterId() {
 /* TEMP */
 
 // DEBUG - Every 30 seconds load local scan for testing.
-// artEater.digest(__dirname + '/work/example-scans/Image-005.png', digestionComplete);
+// artEater.digest(__dirname + '/work/example-scans/character-sheet-scan.png', digestionComplete);
 // setInterval(function() {
 
 //   var rInt = Math.ceil(Math.random() * 7);

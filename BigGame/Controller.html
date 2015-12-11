@@ -70,7 +70,7 @@
 
       function promptFirstTimer() {
 
-        var nickname = prompt("Welcome! Touch and drag to move. Tap to smash asteroids. Enter your CHARACTER CODE to join.", '');
+        var nickname = prompt("Welcome! Touch and drag to move. Tap to throw. Enter your CHARACTER CODE to join.", '');
         nickame = sanitize(nickname);
         var data = {'nickname': nickname};
         data.firstTime = true;
@@ -210,7 +210,7 @@
   </script>
 
   <body>
-    <br/><h3 id="instruct" style="pointer-events:none;">Touch and drag to move.<br/>Tap to smash.</h3>
+    <br/><h3 id="instruct" style="pointer-events:none;">Touch and drag to move.<br/>Tap to throw.</h3>
     <canvas id="canvas"></canvas>
   </body>
 

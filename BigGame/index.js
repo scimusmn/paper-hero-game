@@ -69,6 +69,7 @@ io.on('connection', function(socket) {
   var nickname;
   var usercolor;
   var assetPath;
+  var vars;
 
   console.log('User has connected. Connection:', socket.request.connection._peername);
 
@@ -83,7 +84,11 @@ io.on('connection', function(socket) {
     usercolor = data.usercolor;
 
     // Check input-code for matches in character manifest
-    assetPath = lookupCharacterManifest(data.nickname);
+    var charData = lookupCharacterManifest(data.nickname);
+    if (charData) {
+      assetPath = charData.assetPath;
+      vars = charData.vars;
+    }
 
     if (usertype == CLIENT_SHARED_SCREEN) {
 
@@ -122,10 +127,10 @@ io.on('connection', function(socket) {
 
           console.log('Disconnecting redundant user socket: ' + clients[userid]);
 
-          prevConnected.emit('alert-message', {message: 'Whoops you disconnected! Reload to play.'});
+          // prevConnected.emit('alert-message', {message: 'Whoops you disconnected! Reload to play.'});
 
-          clients[userid].disconnect();
-          delete clients[userid];
+          // clients[userid].disconnect();
+          // delete clients[userid];
         }
 
       } else {
@@ -150,6 +155,7 @@ io.on('connection', function(socket) {
                                                                   socketid: socketid,
                                                                   usercolor: usercolor,
                                                                   assetPath: assetPath,
+                                                                  vars: vars,
                                                               });
 
     }
@@ -255,23 +261,21 @@ io.on('connection', function(socket) {
 
   function lookupCharacterManifest(characterId) {
 
-    console.log('lookupCharacterManifest', characterId);
-
-    var assetPath = ''; // Default asset path.
-
     if (characterId in characterManifest) {
 
-      var data = characterManifest[characterId];
-      assetPath = data.assetPath;
-      console.log('found~', assetPath);
+      console.log('Found character code in manifest:', characterId);
+      return characterManifest[characterId];
 
     } else {
-      console.log('NOT found~', assetPath);
+
+      console.log('DID NOT find character code in manifest:', characterId);
 
       // TODO - display warning message? ("Character not found")
+
+      return null;
+
     }
 
-    return assetPath;
   }
 
 });
@@ -305,6 +309,7 @@ exports.addPlayableCharacter = function(characterId, characterData) {
   io.sockets.connected[presenterScreenSID].emit('present-character', {  characterId: characterId,
                                                                         characterData: characterData,
                                                                       });
+
 
 };
 

@@ -124,15 +124,34 @@ function Game() {
     var namePath = '';
     var bigPath = '';
     if (data.assetPath !== null && data.assetPath !== undefined && data.assetPath !== '') {
-      idlePath = data.assetPath + 'monster.png';
-      bigPath = data.assetPath + 'monsterBig.png';
+      idlePath = data.assetPath + 'character.png';
+      bigPath = data.assetPath + 'characterBig.png';
       toolPath = data.assetPath + 'tool.png';
       foodPath = data.assetPath + 'food.png';
       namePath  = data.assetPath + 'name.png';
     }
 
+    var fSpeed = 1;
+    var fSize = 1;
+    var fAccuracy = 1;
+    var fStrength = 1;
+    if (data.vars !== null && data.vars !== undefined && data.vars !== '') {
+      fSpeed = Math.max(0, data.vars[0]) + 1;
+      fSize = Math.max(0, data.vars[1]) + 1;
+      fAccuracy = Math.max(0, data.vars[2]) + 1;
+      fStrength = Math.max(0, data.vars[3]) + 1;
+    }
+
+    console.log('Speed:', fSpeed);
+    console.log('Size:', fSize);
+    console.log('Accuracy:', fAccuracy);
+    console.log('Strength:', fStrength);
+
+    // Map to useful values
+    fSize = 50 + (fSize * 15);
+
     // Add new flyer div to stage
-    $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><img id="fist" src="' + toolPath + '"/><img width=50 id="idle" src="' + idlePath + '"/></div>');
+    $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><img id="fist" src="' + toolPath + '"/><img width=' + fSize + ' id="idle" src="' + idlePath + '"/></div>');
     var flyerDiv = $('#flyer_' + data.userid);
 
     // Pop in
@@ -156,6 +175,10 @@ function Game() {
                         namePath: namePath,
                         foodPath: foodPath,
                         bigPath: bigPath,
+                        speed: fSpeed,
+                        size: fSize,
+                        accuracy: fAccuracy,
+                        strength: fStrength,
                         color: data.usercolor,
                         deadCount: 0,
                         score: 0,
@@ -421,7 +444,7 @@ function Game() {
 
         // Successful stun!
         of.stunned = true;
-        TweenMax.to($(of.div), 0.2, { css: { opacity:0.5 }, ease:Power2.easeInOut, repeat:12, yoyo:true, onComplete: liftStun, onCompleteParams:[of] });
+        TweenMax.to($(of.div), 0.15, { css: { opacity:0.5 }, ease:Power2.easeInOut, repeat:20, yoyo:true, onComplete: liftStun, onCompleteParams:[of] });
 
         if (stunCallback) {
           stunCallback.call(undefined, of.socketid);
@@ -437,7 +460,7 @@ function Game() {
 
   function eatFood(hungryFlyer) {
 
-    var eatRadius = 60;
+    var eatRadius = hungryFlyer.size;
     var points = 0;
     var fd;
 
@@ -506,35 +529,40 @@ function Game() {
     // Clear gameplay
     // Show new-round screen
     $('#new-round').show();
-    $('#new-round #featured-character').attr('src', flyers[0].bigPath);
-    TweenLite.from($('#new-round #featured-character'), 2, { css: { top:-1000 }, ease:Bounce.easeOut });
     $('#join-msg').hide();
     roundCountdown = -LOBBY_DURATION;
     clearGameObjects();
     updateScoreboard();
     $('#game-countdown').text(' ');
 
-    // Emit win event to top-scorer
-    if (winCallback) {
-      winCallback.call(undefined, flyers[0].socketid);
-    }
+    if (flyers.length > 0) {
 
-    // Emit lose event to every other player
-    if (loseCallback) {
-      for (var i = 1; i < flyers.length; i++) {
-        loseCallback.call(undefined, flyers[i].socketid);
+      // Display winner big sized
+      $('#new-round #featured-character').attr('src', flyers[0].bigPath);
+      TweenLite.from($('#new-round #featured-character'), 2, { css: { top:-1000 }, ease:Bounce.easeOut });
+
+      // Emit win event to top-scorer
+      if (winCallback) {
+        winCallback.call(undefined, flyers[0].socketid);
       }
-    }
 
-    // Dispatch game data for tracking
-    if (trackCallback) {
-      var eventProps = {
-        numPlayers: flyers.length,
-        winnerName: flyers[0].nickname,
-        highScore: flyers[0].score,
-        lowScore: flyers[flyers.length - 1].score,
-      };
-      trackCallback.call(undefined, 'round-complete', eventProps);
+      // Emit lose event to every other player
+      if (loseCallback) {
+        for (var i = 1; i < flyers.length; i++) {
+          loseCallback.call(undefined, flyers[i].socketid);
+        }
+      }
+
+      // Dispatch game data for tracking
+      if (trackCallback) {
+        var eventProps = {
+          numPlayers: flyers.length,
+          winnerName: flyers[0].nickname,
+          highScore: flyers[0].score,
+          lowScore: flyers[flyers.length - 1].score,
+        };
+        trackCallback.call(undefined, 'round-complete', eventProps);
+      }
     }
 
   }

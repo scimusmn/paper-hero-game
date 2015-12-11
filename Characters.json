@@ -1,194 +1,105 @@
 {
-  "GVCP": {
-    "monster": "/smash/characters/1449612995157/monster.png",
-    "monsterBig": "/smash/characters/1449612995157/monsterBig.png",
-    "tool": "/smash/characters/1449612995157/tool.png",
-    "food": "/smash/characters/1449612995157/food.png",
-    "name": "/smash/characters/1449612995157/name.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
-      4
-    ],
-    "assetPath": "/smash/characters/1449612995157/",
-    "datecreated": "1449612998608"
+  "IPUF": {
+    "character": "/smash/characters/1449787577805/character.png",
+    "characterBig": "/smash/characters/1449787577805/characterBig.png",
+    "tool": "/smash/characters/1449787577805/tool.png",
+    "food": "/smash/characters/1449787577805/food.png",
+    "speed": 3,
+    "size": 0,
+    "accuracy": -1,
+    "strength": 1,
+    "name": "/smash/characters/1449787577805/name.png",
+    "assetPath": "/smash/characters/1449787577805/",
+    "datecreated": "1449787579887"
   },
-  "BIKY": {
-    "monster": "/smash/characters/1449613020717/monster.png",
-    "monsterBig": "/smash/characters/1449613020717/monsterBig.png",
-    "tool": "/smash/characters/1449613020717/tool.png",
-    "food": "/smash/characters/1449613020717/food.png",
-    "name": "/smash/characters/1449613020717/name.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "assetPath": "/smash/characters/1449613020717/",
-    "datecreated": "1449613024091"
-  },
-  "KUHF": {
-    "monster": "/smash/characters/1449613119329/monster.png",
-    "monsterBig": "/smash/characters/1449613119329/monsterBig.png",
-    "tool": "/smash/characters/1449613119329/tool.png",
-    "food": "/smash/characters/1449613119329/food.png",
-    "name": "/smash/characters/1449613119329/name.png",
-    "steps": [
-      -1,
-      -1,
-      4,
-      -1,
-      -1
-    ],
-    "assetPath": "/smash/characters/1449613119329/",
-    "datecreated": "1449613122660"
-  },
-  "WUYQ": {
-    "monster": "/smash/characters/1449614987964/monster.png",
-    "monsterBig": "/smash/characters/1449614987964/monsterBig.png",
-    "tool": "/smash/characters/1449614987964/tool.png",
-    "food": "/smash/characters/1449614987964/food.png",
-    "name": "/smash/characters/1449614987964/name.png",
-    "steps": [
-      5,
-      1,
-      4,
-      5,
-      5
-    ],
-    "assetPath": "/smash/characters/1449614987964/",
-    "datecreated": "1449614991457"
-  },
-  "ZDFG": {
-    "monster": "/smash/characters/1449615082737/monster.png",
-    "monsterBig": "/smash/characters/1449615082737/monsterBig.png",
-    "tool": "/smash/characters/1449615082737/tool.png",
-    "food": "/smash/characters/1449615082737/food.png",
-    "name": "/smash/characters/1449615082737/name.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "assetPath": "/smash/characters/1449615082737/",
-    "datecreated": "1449615086185"
-  },
-  "IEVP": {
-    "monster": "/smash/characters/1449620422767/monster.png",
-    "monsterBig": "/smash/characters/1449620422767/monsterBig.png",
-    "tool": "/smash/characters/1449620422767/tool.png",
-    "food": "/smash/characters/1449620422767/food.png",
-    "name": "/smash/characters/1449620422767/name.png",
-    "steps": [
-      8,
-      5,
+  "SALY": {
+    "character": "/smash/characters/1449795899361/character.png",
+    "characterBig": "/smash/characters/1449795899361/characterBig.png",
+    "tool": "/smash/characters/1449795899361/tool.png",
+    "food": "/smash/characters/1449795899361/food.png",
+    "name": "/smash/characters/1449795899361/name.png",
+    "vars": [
+      3,
       0,
-      4,
-      5
+      -1,
+      1
     ],
-    "assetPath": "/smash/characters/1449620422767/",
-    "datecreated": "1449620426187"
+    "assetPath": "/smash/characters/1449795899361/",
+    "datecreated": "1449795901471"
   },
-  "RCPD": {
-    "monster": "/smash/characters/1449620485012/monster.png",
-    "monsterBig": "/smash/characters/1449620485012/monsterBig.png",
-    "tool": "/smash/characters/1449620485012/tool.png",
-    "food": "/smash/characters/1449620485012/food.png",
-    "name": "/smash/characters/1449620485012/name.png",
-    "steps": [
-      2,
-      2,
-      4,
-      7,
-      6
+  "XEXC": {
+    "character": "/smash/characters/1449795978440/character.png",
+    "characterBig": "/smash/characters/1449795978440/characterBig.png",
+    "tool": "/smash/characters/1449795978440/tool.png",
+    "food": "/smash/characters/1449795978440/food.png",
+    "name": "/smash/characters/1449795978440/name.png",
+    "vars": [
+      3,
+      0,
+      -1,
+      1
     ],
-    "assetPath": "/smash/characters/1449620485012/",
-    "datecreated": "1449620488529"
+    "assetPath": "/smash/characters/1449795978440/",
+    "datecreated": "1449795980522"
   },
-  "HUZT": {
-    "monster": "/smash/characters/1449620702969/monster.png",
-    "monsterBig": "/smash/characters/1449620702969/monsterBig.png",
-    "tool": "/smash/characters/1449620702969/tool.png",
-    "food": "/smash/characters/1449620702969/food.png",
-    "name": "/smash/characters/1449620702969/name.png",
-    "steps": [
-      6,
-      6,
-      6,
-      6,
+  "LSCG": {
+    "character": "/smash/characters/1449796091239/character.png",
+    "characterBig": "/smash/characters/1449796091239/characterBig.png",
+    "tool": "/smash/characters/1449796091239/tool.png",
+    "food": "/smash/characters/1449796091239/food.png",
+    "name": "/smash/characters/1449796091239/name.png",
+    "vars": [
+      3,
+      0,
+      -1,
+      1
+    ],
+    "assetPath": "/smash/characters/1449796091239/",
+    "datecreated": "1449796093264"
+  },
+  "TFEC": {
+    "character": "/smash/characters/1449796137768/character.png",
+    "characterBig": "/smash/characters/1449796137768/characterBig.png",
+    "tool": "/smash/characters/1449796137768/tool.png",
+    "food": "/smash/characters/1449796137768/food.png",
+    "name": "/smash/characters/1449796137768/name.png",
+    "vars": [
+      4,
+      4,
+      4,
       4
     ],
-    "assetPath": "/smash/characters/1449620702969/",
-    "datecreated": "1449620706431"
+    "assetPath": "/smash/characters/1449796137768/",
+    "datecreated": "1449796139629"
   },
-  "NAWY": {
-    "monster": "/smash/characters/1449623747386/monster.png",
-    "monsterBig": "/smash/characters/1449623747386/monsterBig.png",
-    "tool": "/smash/characters/1449623747386/tool.png",
-    "food": "/smash/characters/1449623747386/food.png",
-    "name": "/smash/characters/1449623747386/name.png",
-    "steps": [
-      2,
-      8,
+  "XXDW": {
+    "character": "/smash/characters/1449796425757/character.png",
+    "characterBig": "/smash/characters/1449796425757/characterBig.png",
+    "tool": "/smash/characters/1449796425757/tool.png",
+    "food": "/smash/characters/1449796425757/food.png",
+    "name": "/smash/characters/1449796425757/name.png",
+    "vars": [
+      3,
       1,
+      0,
+      2
+    ],
+    "assetPath": "/smash/characters/1449796425757/",
+    "datecreated": "1449796427908"
+  },
+  "LCAO": {
+    "character": "/smash/characters/1449797376620/character.png",
+    "characterBig": "/smash/characters/1449797376620/characterBig.png",
+    "tool": "/smash/characters/1449797376620/tool.png",
+    "food": "/smash/characters/1449797376620/food.png",
+    "name": "/smash/characters/1449797376620/name.png",
+    "vars": [
+      4,
+      4,
       4,
       4
     ],
-    "assetPath": "/smash/characters/1449623747386/",
-    "datecreated": "1449623750855"
-  },
-  "ROEP": {
-    "monster": "/smash/characters/1449623817893/monster.png",
-    "monsterBig": "/smash/characters/1449623817893/monsterBig.png",
-    "tool": "/smash/characters/1449623817893/tool.png",
-    "food": "/smash/characters/1449623817893/food.png",
-    "name": "/smash/characters/1449623817893/name.png",
-    "steps": [
-      -1,
-      -1,
-      4,
-      -1,
-      -1
-    ],
-    "assetPath": "/smash/characters/1449623817893/",
-    "datecreated": "1449623821086"
-  },
-  "HHCU": {
-    "monster": "/smash/characters/1449623947776/monster.png",
-    "monsterBig": "/smash/characters/1449623947776/monsterBig.png",
-    "tool": "/smash/characters/1449623947776/tool.png",
-    "food": "/smash/characters/1449623947776/food.png",
-    "name": "/smash/characters/1449623947776/name.png",
-    "steps": [
-      2,
-      8,
-      1,
-      4,
-      4
-    ],
-    "assetPath": "/smash/characters/1449623947776/",
-    "datecreated": "1449623951142"
-  },
-  "MHXL": {
-    "monster": "/smash/characters/1449623957165/monster.png",
-    "monsterBig": "/smash/characters/1449623957165/monsterBig.png",
-    "tool": "/smash/characters/1449623957165/tool.png",
-    "food": "/smash/characters/1449623957165/food.png",
-    "name": "/smash/characters/1449623957165/name.png",
-    "steps": [
-      4,
-      4,
-      2,
-      5,
-      5
-    ],
-    "assetPath": "/smash/characters/1449623957165/",
-    "datecreated": "1449623960408"
+    "assetPath": "/smash/characters/1449797376620/",
+    "datecreated": "1449797378435"
   }
 }
