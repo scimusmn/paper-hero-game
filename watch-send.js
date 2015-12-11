@@ -23,13 +23,15 @@ var TARGET_DIRECTORY = ''; // Example: 'admin:password@example.com:/home/admin/'
 */
 var watchOptions = {ignored: /[\/\\]\./, persistent: true, ignoreInitial:true, awaitWriteFinish: true};
 
-chokidar.watch(directoryPath, watchOptions).on('add', function(path) {
+chokidar.watch(WATCH_DIRECTORY, watchOptions).on('add', function(filePath) {
 
-  console.log('New file ready:', path);
+  console.log('New file ready:', filePath);
 
   // TODO - Send to server
 
 });
+
+console.log('Watching directory:', WATCH_DIRECTORY);
 
 /**
 *
