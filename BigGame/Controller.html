@@ -153,6 +153,10 @@
 
           playSound('points');
 
+        } else if (data.type === 'destroy') {
+
+          playSound('destroy');
+
         } else if (data.type === 'win') {
 
           playSound('winner');
@@ -188,7 +192,8 @@
             loser1: [6026, 1270],
             loser2: [7300, 1120],
             loser3: [8434, 1282],
-            points: [9775, 1459]
+            destroy: [9775, 1459],
+            points: [10350, 1303]
 
           }
         });

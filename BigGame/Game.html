@@ -65,7 +65,7 @@
       });
 
       game.init($('#stage'));
-      game.setCallbacks(onForceDisconnect, onWin, onLose, onPoints, onStun);
+      game.setCallbacks(onForceDisconnect, onWin, onLose, onPoints, onDestroy, onStun);
 
       function onForceDisconnect(userid) {
         //Emit idle player's socket id
@@ -82,6 +82,10 @@
       function onPoints(socketid) {
         //Emit point-getter's socket id
         socket.emit('controller-event', {'type':'points', 'socketid':socketid} );
+      }
+      function onDestroy(socketid) {
+        //Emit point-getter's socket id
+        socket.emit('controller-event', {'type':'destroy', 'socketid':socketid} );
       }
       function onStun(socketid) {
         //Emit stunned user's socketid

@@ -16,6 +16,7 @@ function Game() {
   var winCallback;
   var loseCallback;
   var pointsCallback;
+  var destroyCallback;
   var stunCallback;
   var trackCallback;
 
@@ -30,11 +31,12 @@ function Game() {
 
   };
 
-  this.setCallbacks = function(diconnect, win, lose, points, stun, track) {
+  this.setCallbacks = function(diconnect, win, lose, points, destroy, stun, track) {
     diconnectCallback = diconnect;
     winCallback = win;
     loseCallback = lose;
     pointsCallback = points;
+    destroyCallback = destroy;
     stunCallback = stun;
     trackCallback = track;
   };
@@ -245,17 +247,6 @@ function Game() {
     // Throw projectile
     throwProjectile(f);
 
-    // Destroy asteroids
-    var pnts = smashAsteroids(f.x + 17, f.y + 25, f.dir);
-    if (pnts > 0) {
-      f.score += pnts;
-
-      // Emit points event to scorer
-      if (pointsCallback) {
-        pointsCallback.call(undefined, f.socketid);
-      }
-    }
-
     // Stun others
     var didStun = attemptStun(f);
 
@@ -361,7 +352,6 @@ function Game() {
 
         // Emit points event to scorer
         if (pointsCallback) {
-          // TODO - should be separate food calllback
           pointsCallback.call(undefined, flyer.socketid);
         }
 
@@ -450,7 +440,7 @@ function Game() {
 
         // Successful stun!
         of.stunned = true;
-        TweenMax.to($(of.div), 0.15, { css: { opacity:0.5 }, ease:Power2.easeInOut, repeat:20, yoyo:true, onComplete: liftStun, onCompleteParams:[of] });
+        TweenMax.to($(of.div), 0.15, { css: { opacity:0.5 }, ease:Power2.easeInOut, repeat:22, yoyo:true, onComplete: liftStun, onCompleteParams:[of] });
 
         if (stunCallback) {
           stunCallback.call(undefined, of.socketid);
@@ -634,8 +624,8 @@ function Game() {
     // Starting point
     TweenLite.set($(pDiv), { css: { opacity: 0.85, left:tX, top:tY} });
 
-    var throwDist = 250; // 50 - 250;
-    var throwSpeed = 0.2; //0.2 - 0.8;
+    var throwDist = 180; // 50 - 250;
+    var throwSpeed = 0.275; //0.2 - 0.8;
 
     tX += (flyer.dir * throwDist) + (Math.random() * 20 - 10);
     tY += Math.random() * 80 - 40;
@@ -678,6 +668,19 @@ function Game() {
       }
 
     }
+
+    // Check Asteroids
+    /*
+    var pnts = smashAsteroids(px, py, attackingFlyer.dir);
+    if (pnts > 0) {
+      attackingFlyer.score += pnts;
+
+      // Emit points event to scorer
+      if (destroyCallback) {
+        destroyCallback.call(undefined, attackingFlyer.socketid);
+      }
+    }
+    */
 
   }
 
@@ -725,7 +728,7 @@ function Game() {
       diam = 490;
     }
 
-    var aDiv = $('<div class="asteroid" style=""><img src="img/asteroids/' + astType + '-asteroid-dark.png"/></div>');
+    var aDiv = $('<div class="asteroid" style=""><img src="img/asteroids/' + astType + '-asteroid-light.png"/></div>');
 
     $(stageDiv).append(aDiv);
 
