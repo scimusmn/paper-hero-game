@@ -507,7 +507,6 @@ function Game() {
     $('#new-round').hide();
     $('#join-msg').show();
 
-    // TweenMax.to( $("#join-msg"), 7.3, { css: { bottom:130 }, ease:Power2.easeInOut, repeat:99, yoyo:true } );
     roundCountdown = ROUND_DURATION;
 
     // Reset everyone's score
@@ -529,7 +528,7 @@ function Game() {
     // Clear gameplay
     // Show new-round screen
     $('#new-round').show();
-    $('#join-msg').hide();
+    // $('#join-msg').hide();
     roundCountdown = -LOBBY_DURATION;
     clearGameObjects();
     updateScoreboard();

@@ -28,7 +28,7 @@
 
         console.log('add player');
 
-        $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has joined.'));
+        // $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has joined.'));
 
         // Shorten names
         var newName = data.nickname.substring(0,15);
@@ -39,7 +39,7 @@
 
       socket.on('remove-player', function(data){
 
-        $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has exited.'));
+        // $('#messages').append($('<li>').html('<span style="color:'+data.usercolor+';">'+ data.nickname+'</span> has exited.'));
         game.removePlayer(data);
 
       });
