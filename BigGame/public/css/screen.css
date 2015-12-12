@@ -37,7 +37,7 @@ body {
     position: fixed;
     text-align: center;
     left: 270px;
-    bottom: 90px;
+    bottom: 40px;
     font-size: 2.5em;
     color: #444;
 }
@@ -54,8 +54,8 @@ body {
 #new-round #round-countdown {
     position: absolute;
     text-align: center;
-    right: 350px;
-    top: 610px;
+    right: 220px;
+    top: 410px;
     font-size: 8em;
     color: #444;
 }
@@ -63,8 +63,8 @@ body {
 #new-round #player-list {
     position: absolute;
     text-align: left;
-    left: 300px;
-    top: 615px;
+    left: 150px;
+    top: 415px;
     font-size: 25px;
     color: #444;
 }
