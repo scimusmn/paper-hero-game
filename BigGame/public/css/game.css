@@ -34,6 +34,10 @@
     border-width: 4px;
     border-style: solid;
 }
+.projectile{
+    position: absolute;
+    z-index: 2;
+}
 .points{
     position: absolute;
     z-index: 3;

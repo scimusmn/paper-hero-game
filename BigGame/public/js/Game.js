@@ -6,6 +6,7 @@ function Game() {
   var currentFrameRequest = 0;
   var flyers = [];
   var asteroids = [];
+  var projectiles = [];
   var food = [];
   var stageDiv = {};
   var stageBounds = {};
@@ -148,7 +149,8 @@ function Game() {
     console.log('Strength:', fStrength);
 
     // Map to useful values
-    fSize = 50 + (fSize * 15);
+    // fSize = 50 + (fSize * 15);
+    fSize = 60;
 
     // Add new flyer div to stage
     $(stageDiv).append('<div id="flyer_' + data.userid + '" class="flyer" ><img id="fist" src="' + toolPath + '"/><img width=' + fSize + ' id="idle" src="' + idlePath + '"/></div>');
@@ -175,6 +177,7 @@ function Game() {
                         namePath: namePath,
                         foodPath: foodPath,
                         bigPath: bigPath,
+                        toolPath: toolPath,
                         speed: fSpeed,
                         size: fSize,
                         accuracy: fAccuracy,
@@ -236,8 +239,11 @@ function Game() {
     if (f.stunned) return;
 
     // Swing fist
-    TweenLite.set($(f.div).children('#fist'), { css: { rotation: -60 * f.dir, opacity: 1, transformOrigin:'50% 100% 0' } });
-    TweenMax.to($(f.div).children('#fist'), 0.4, { css: { rotation: 330 * f.dir, opacity: 0 }, ease: Power3.easeOut });
+    // TweenLite.set($(f.div).children('#fist'), { css: { rotation: -60 * f.dir, opacity: 1, transformOrigin:'50% 100% 0' } });
+    // TweenMax.to($(f.div).children('#fist'), 0.4, { css: { rotation: 330 * f.dir, opacity: 0 }, ease: Power3.easeOut });
+
+    // Throw projectile
+    throwProjectile(f);
 
     // Destroy asteroids
     var pnts = smashAsteroids(f.x + 17, f.y + 25, f.dir);
@@ -528,6 +534,7 @@ function Game() {
     // Clear gameplay
     // Show new-round screen
     $('#new-round').show();
+
     // $('#join-msg').hide();
     roundCountdown = -LOBBY_DURATION;
     clearGameObjects();
@@ -612,6 +619,65 @@ function Game() {
     // Scale and fade
     TweenLite.to($(pDiv), 0.15, { css: { left:tX, top:tY }, ease:Power3.easeOut });
     TweenLite.to($(pDiv), 0.2, { css: { opacity:0.0 }, ease:Power3.easeIn, onComplete: removeElement, onCompleteParams:[pDiv] });
+
+  }
+
+  function throwProjectile(flyer) {
+
+    // Add to stage
+    var pDiv = $('<img class="projectile" width="30" src="' + flyer.toolPath + '">');
+    $(stageDiv).append(pDiv);
+
+    var tX = flyer.x + (flyer.dir * 5) + 10;
+    var tY = flyer.y + 20;
+
+    // Starting point
+    TweenLite.set($(pDiv), { css: { opacity: 0.85, left:tX, top:tY} });
+
+    var throwDist = 250; // 50 - 250;
+    var throwSpeed = 0.2; //0.2 - 0.8;
+
+    tX += (flyer.dir * throwDist) + (Math.random() * 20 - 10);
+    tY += Math.random() * 80 - 40;
+
+    // Scale and fade
+    TweenLite.to($(pDiv), throwSpeed, { css: { left:tX, top:tY }, ease:Power1.easeOut, onComplete: projectileHitCheck, onCompleteParams:[flyer,tX,tY] });
+    TweenLite.to($(pDiv), throwSpeed + 0.1, { css: { opacity:1 }, ease:Power3.easeOut, onComplete: removeElement, onCompleteParams:[pDiv] });
+
+  }
+
+  function projectileHitCheck(attackingFlyer, px, py) {
+
+    var stunRadius = 50;
+
+    var of;
+    var oX;
+    var oY;
+
+    for (i = flyers.length - 1; i >= 0; i--) {
+
+      // Skip attacking flyer and stunned flyers
+      if (flyers[i].userid == attackingFlyer.userid || flyers[i].stunned === true) {
+        continue;
+      }
+
+      of = flyers[i];
+      oX = parseInt($(of.div).css('left'), 10);
+      oY = parseInt($(of.div).css('top'), 10);
+
+      if (dist(oX, oY, px, py) < stunRadius) {
+
+        // Successful stun!
+        of.stunned = true;
+        TweenMax.to($(of.div), 0.15, { css: { opacity:0.5 }, ease:Power2.easeInOut, repeat:20, yoyo:true, onComplete: liftStun, onCompleteParams:[of] });
+
+        if (stunCallback) {
+          stunCallback.call(undefined, of.socketid);
+        }
+
+      }
+
+    }
 
   }
 
