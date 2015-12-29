@@ -3,7 +3,7 @@ Quickly integrate hand-drawn art into exhibits.
 
 ![Art Eater](http://www.animalstown.com/animals/a/anteater/anteater-image-04.jpg "Art Eater")
 
-This project requires the ImageMagick command line tool. Install via HomeBrew:
+The computer running this project must have ImageMagick installed. Install via HomeBrew:
 
 ```brew install imagemagick```
 
