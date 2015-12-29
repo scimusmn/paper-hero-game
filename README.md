@@ -1,14 +1,15 @@
 #Paper Art Eater
-Automated form reader for quickly integrating hand-drawn art into exhibits.
+Quickly integrate hand-drawn art into exhibits.
 
 ![Art Eater](http://www.animalstown.com/animals/a/anteater/anteater-image-04.jpg "Art Eater")
 
-This project requires the ImageMagick command line tool.
-
-You can install via HomeBrew:
+This project requires the ImageMagick command line tool. Install via HomeBrew:
 
 ```brew install imagemagick```
 
+#Hardware Notes
+You can use any hardware to import original images, as long as the background is white. (USB cameras, portables scanners)
+A great scanner that we've used is the Brother 620. http://goo.gl/dWVEOp
 
 #Status
 In-progress prototype. This is all speculation. Will eventually be separated into a node package and example usage project. Don't even pay attention to the below info because it will change.
@@ -27,7 +28,7 @@ Types of regions:
 index.js
 ```javascript
   var artEater = require('art-eater');
-  
+
   artEater.loadForm('./public/forms/regions.json');
   artEater.setOutput('./public/output/');
   artEater.watchDirectory('./public/scanner/', onScanDigested);
